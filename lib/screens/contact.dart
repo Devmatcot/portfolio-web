@@ -22,9 +22,9 @@ class _ContactPageState extends State<ContactPage> {
         automaticallyImplyLeading: false,
         actions: [
           AppBarText(text: 'Home', function: () {}, padding: 18.0),
-          AppBarText(text: 'Home', function: () {}, padding: 18.0),
-          AppBarText(text: 'Home', function: () {}, padding: 18.0),
-          AppBarText(text: 'Home', function: () {}, padding: 18.0),
+          AppBarText(text: 'Porfolio', function: () {}, padding: 18.0),
+          AppBarText(text: 'Testimonie', function: () {}, padding: 18.0),
+          AppBarText(text: 'Contact', function: () {}, padding: 18.0),
         ],
       ),
       body: SingleChildScrollView(
@@ -51,7 +51,7 @@ class _ContactPageState extends State<ContactPage> {
                         ],
                       ),
                     ),
-                    SizedBox(height: 30),
+                    SizedBox(height: 20),
                     Text(
                         'Hey There, Got a project, Job Offer or Consulting work for me? Feel free to contact me ASAP',  style: TextStyle(fontSize:20), textAlign: TextAlign.center, ),
                     SizedBox(height: 10),
