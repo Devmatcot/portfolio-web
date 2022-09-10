@@ -1,12 +1,16 @@
+import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 
 import 'package:portfolio_web/widget/card.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/myStack.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import'package:go_router/go_router.dart';
 
 import '../widget/appbartext.dart';
 import '../widget/description.dart';
+import '../widget/message_input.dart';
 import '../widget/smallbutton.dart';
 
 class HomePage extends StatefulWidget {
@@ -24,8 +28,9 @@ class _HomePageState extends State<HomePage>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: SafeArea(
-        top: false,
+      body: Scrollbar(
+        thumbVisibility: kIsWeb,
+
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -34,7 +39,7 @@ class _HomePageState extends State<HomePage>
               floating: true,
               // pinned: true,
               // excludeHeaderSemantics: true,
-
+      
               snap: true,
               actions: [
                 Padding(
@@ -60,7 +65,9 @@ class _HomePageState extends State<HomePage>
                         AppBarText(function: (() {}), text: 'Home'),
                         AppBarText(function: (() {}), text: 'Portfolio'),
                         AppBarText(function: (() {}), text: 'Testimonies'),
-                        AppBarText(function: (() {}), text: 'Contact'),
+                        AppBarText(function: (() {
+                          context.go('/contact');
+                        }), text: 'Contact'),
                         // SmallButton(text: 'My CV', function: (){}),
                       ],
                     ),
@@ -139,7 +146,9 @@ class _HomePageState extends State<HomePage>
                                   SizedBox(width: 30),
                                   SmallButton(
                                     text: 'Contact Me',
-                                    function: () {},
+                                    function: () {
+                                      context.go('/contact');
+                                    },
                                   )
                                 ],
                               ),
@@ -402,7 +411,7 @@ class _HomePageState extends State<HomePage>
                             height: 700,
                             decoration: BoxDecoration(
                                 // color: Colors.black26,
-
+      
                                 image: DecorationImage(
                                     image: AssetImage(
                                       'assets/images/mypic.png',
@@ -419,12 +428,13 @@ class _HomePageState extends State<HomePage>
                         ),
                       ),
                       Positioned(
-                        bottom: 150,
-                        right: 500,
+                          bottom: 150,
+                          right: 500,
                           child: Container(
                             width: 300,
                             child: Text(
-                                '"Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry" --- Dev Matcot', style: TextStyle(fontSize: 20)),
+                                '"Lorem Ipsum is Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry" --- Dev Matcot',
+                                style: TextStyle(fontSize: 20)),
                           ))
                     ],
                   ),
@@ -466,47 +476,81 @@ class _HomePageState extends State<HomePage>
                                 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
                             title: 'Project',
                           )),
+                ),
+                SizedBox(
+                  height: 10,
+                ),
+                Container(
+                  // height: 70,
+                  width: double.infinity,
+                  color: Colors.black,
+                  padding: EdgeInsets.all(10),
+                  child: Center(
+                    child: Column(
+                      // crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(
+                                  FontAwesomeIcons.linkedin,
+                                  color: Colors.white,
+                                )),
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(
+                                  FontAwesomeIcons.facebook,
+                                  color: Colors.white,
+                                )),
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white,)),
+                            IconButton(
+                                onPressed: () {},
+                                icon: FaIcon(
+                                  FontAwesomeIcons.github,
+                                  color: Colors.white,
+                                )),
+                          ],
+                        ),
+                        Text(
+                          '© 2022 Built by Dev Matcot, Designed By Bulam Gerhana',
+                          style: TextStyle(
+                              color: Colors.white, fontWeight: FontWeight.w400),
+                        ),
+                        SizedBox(
+                          height: 10,
+                        ),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            Text('Built using',
+                                style: TextStyle(color: Colors.white)),
+                            FlutterLogo(
+                              size: 18,
+                            ),
+                            Text('with ',
+                                style: TextStyle(
+                                    color: Colors.white,
+                                    fontWeight: FontWeight.w400)),
+                            Icon(
+                              Icons.favorite,
+                              color: Colors.red,
+                              size: 18,
+                            )
+                          ],
+                        )
+                      ],
+                    ),
+                  ),
                 )
               ]),
             ),
           ],
         ),
       ),
-    );
-  }
-}
-
-class MessageInput extends StatelessWidget {
-  String title;
-  String hintText;
-  int? line;
-  MessageInput(
-      {Key? key, required this.title, required this.hintText, this.line = 1})
-      : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      children: [
-        SizedBox(height: 10),
-        Text(title),
-        Container(
-          // height: 50,
-          width: 400,
-          decoration: BoxDecoration(
-              color: Color.fromARGB(10, 0, 0, 0),
-              borderRadius: BorderRadius.circular(5)),
-          child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 10),
-            child: TextField(
-              maxLines: line,
-              decoration:
-                  InputDecoration(hintText: hintText, border: InputBorder.none),
-            ),
-          ),
-        ),
-      ],
     );
   }
 }

@@ -4,9 +4,11 @@ import 'package:portfolio_web/widget/constant.dart';
 class AppBarText extends StatefulWidget {
   String text;
   VoidCallback function;
+  double padding;
   AppBarText({
     Key? key,
     required this.text,
+    this.padding = 0,
     required this.function,
   }) : super(key: key);
 
@@ -31,13 +33,16 @@ class _AppBarTextState extends State<AppBarText> {
         });
       },
       child: GestureDetector(
-        onTap: () {},
-        child: Text(
-          widget.text,
-          style: TextStyle(
-            fontSize: 15,
-            color: change,
-            fontFamily: 'Poppins-Light',
+        onTap: widget.function,
+        child: Padding(
+          padding: EdgeInsets.all(widget.padding),
+          child: Text(
+            widget.text,
+            style: TextStyle(
+              fontSize: 15,
+              color: change,
+              fontFamily: 'Poppins-Light',
+            ),
           ),
         ),
       ),
