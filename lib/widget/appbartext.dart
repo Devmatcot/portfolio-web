@@ -4,10 +4,15 @@ import 'package:portfolio_web/widget/constant.dart';
 class AppBarText extends StatefulWidget {
   String text;
   VoidCallback function;
+  int id;
   double padding;
+
+  // AppBarText({required this.function, ) : super(key: key);
+
   AppBarText({
     Key? key,
     required this.text,
+    required this.id,
     this.padding = 0,
     required this.function,
   }) : super(key: key);
@@ -17,6 +22,13 @@ class AppBarText extends StatefulWidget {
 }
 
 class _AppBarTextState extends State<AppBarText> {
+  myfunction(int id) {
+    widget.function;
+    if (1 == widget.id) {
+      change = yellowColor;
+    }
+  }
+
   Color change = whiteColor;
   @override
   Widget build(BuildContext context) {
@@ -33,7 +45,10 @@ class _AppBarTextState extends State<AppBarText> {
         });
       },
       child: GestureDetector(
-        onTap: widget.function,
+        onTap: () {
+          widget.function();
+          myfunction(widget.id);
+        },
         child: Padding(
           padding: EdgeInsets.all(widget.padding),
           child: Text(
@@ -41,6 +56,9 @@ class _AppBarTextState extends State<AppBarText> {
             style: TextStyle(
               fontSize: 15,
               color: change,
+              decoration: 1 == widget.id
+                  ? TextDecoration.combine([TextDecoration.underline])
+                  : TextDecoration.none,
               fontFamily: 'Poppins-Light',
             ),
           ),

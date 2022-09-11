@@ -4,6 +4,7 @@ import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/footer.dart';
 import 'package:portfolio_web/widget/message_input.dart';
 import 'package:portfolio_web/widget/smallbutton.dart';
+import 'package:go_router/go_router.dart';
 
 class ContactPage extends StatefulWidget {
   const ContactPage({Key? key}) : super(key: key);
@@ -21,10 +22,12 @@ class _ContactPageState extends State<ContactPage> {
         elevation: 0,
         automaticallyImplyLeading: false,
         actions: [
-          AppBarText(text: 'Home', function: () {}, padding: 18.0),
-          AppBarText(text: 'Porfolio', function: () {}, padding: 18.0),
-          AppBarText(text: 'Testimonie', function: () {}, padding: 18.0),
-          AppBarText(text: 'Contact', function: () {}, padding: 18.0),
+          AppBarText(id: 1,text: 'Home', function: () {
+            context.go('/');
+          }, padding: 18.0),
+          AppBarText(id: 2,text: 'Porfolio', function: () {}, padding: 18.0),
+          AppBarText(id: 3,text: 'Testimonie', function: () {}, padding: 18.0),
+          AppBarText(id: 4,text: 'Contact', function: () {}, padding: 18.0),
         ],
       ),
       body: SingleChildScrollView(

@@ -6,7 +6,7 @@ import 'package:portfolio_web/widget/card.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/myStack.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import'package:go_router/go_router.dart';
+import 'package:go_router/go_router.dart';
 
 import '../widget/appbartext.dart';
 import '../widget/description.dart';
@@ -31,7 +31,6 @@ class _HomePageState extends State<HomePage>
     return Scaffold(
       body: Scrollbar(
         thumbVisibility: kIsWeb,
-
         child: CustomScrollView(
           slivers: [
             SliverAppBar(
@@ -40,7 +39,7 @@ class _HomePageState extends State<HomePage>
               floating: true,
               // pinned: true,
               // excludeHeaderSemantics: true,
-      
+
               snap: true,
               actions: [
                 Padding(
@@ -63,12 +62,25 @@ class _HomePageState extends State<HomePage>
                     child: Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
-                        AppBarText(function: (() {}), text: 'Home'),
-                        AppBarText(function: (() {}), text: 'Portfolio'),
-                        AppBarText(function: (() {}), text: 'Testimonies'),
-                        AppBarText(function: (() {
-                          context.go('/contact');
-                        }), text: 'Contact'),
+                        AppBarText(function: (() {}), id: 1, text: 'Home'),
+                        AppBarText(
+                            function: (() {
+                              context.go('/contact');
+                            }),
+                            id: 2,
+                            text: 'Portfolio'),
+                        AppBarText(
+                            function: (() {
+                              context.go('/contact');
+                            }),
+                            id: 3,
+                            text: 'Testimonies'),
+                        AppBarText(
+                            function: (() {
+                              context.go('/contact');
+                            }),
+                            text: 'Contact',
+                            id: 4),
                         // SmallButton(text: 'My CV', function: (){}),
                       ],
                     ),
@@ -412,7 +424,7 @@ class _HomePageState extends State<HomePage>
                             height: 700,
                             decoration: BoxDecoration(
                                 // color: Colors.black26,
-      
+
                                 image: DecorationImage(
                                     image: AssetImage(
                                       'assets/images/mypic.png',
@@ -490,5 +502,3 @@ class _HomePageState extends State<HomePage>
     );
   }
 }
-
-
