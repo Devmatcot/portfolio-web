@@ -3,11 +3,12 @@ import 'package:portfolio_web/widget/constant.dart';
 
 class SmallButton extends StatefulWidget {
   String text;
-
+  bool showShadow;
   VoidCallback function;
   SmallButton({
     Key? key,
     required this.text,
+   this.showShadow = true,
     required this.function,
   }) : super(key: key);
 
@@ -40,12 +41,13 @@ class _SmallButtonState extends State<SmallButton> {
           ),
           decoration: BoxDecoration(
               color: change,
-              boxShadow: [
+              boxShadow: widget.showShadow ? [
                 BoxShadow(
                     blurRadius: 6,
                     color: blackColor.withOpacity(0.4),
-                    offset: Offset(4, 4))
-              ],
+                    offset: Offset(4, 4),
+                    )
+              ] : [],
               borderRadius: BorderRadius.circular(10)),
         ),
       ),

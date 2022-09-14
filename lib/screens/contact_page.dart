@@ -26,7 +26,7 @@ class _ContactPageState extends State<ContactPage> {
             context.go('/');
           }, padding: 18.0),
           AppBarText(id: 2,text: 'Porfolio', function: () {}, padding: 18.0),
-          AppBarText(id: 3,text: 'Testimonie', function: () {}, padding: 18.0),
+          AppBarText(id: 3,text: 'Testimonies', function: () {}, padding: 18.0),
           AppBarText(id: 4,text: 'Contact', function: () {}, padding: 18.0),
         ],
       ),

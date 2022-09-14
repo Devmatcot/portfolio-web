@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:portfolio_web/screens/contact.dart';
+import 'package:portfolio_web/screens/contact_page.dart';
 import 'package:portfolio_web/screens/homepage.dart';
 
 void main() {

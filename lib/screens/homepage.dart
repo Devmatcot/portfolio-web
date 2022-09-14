@@ -1,17 +1,19 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:go_router/go_router.dart';
 
 import 'package:portfolio_web/widget/card.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/myStack.dart';
-import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:go_router/go_router.dart';
+import 'package:portfolio_web/widget/project_card.dart';
 
 import '../widget/appbartext.dart';
 import '../widget/description.dart';
 import '../widget/footer.dart';
 import '../widget/message_input.dart';
+import '../widget/scrollbutton.dart';
 import '../widget/smallbutton.dart';
 
 class HomePage extends StatefulWidget {
@@ -469,26 +471,57 @@ class _HomePageState extends State<HomePage>
                     ]),
                   ),
                 ),
-                Container(
-                  height: 500,
-                  width: double.infinity,
-                  color: Colors.white,
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-                  child: ListView.separated(
-                      separatorBuilder: ((context, index) => SizedBox(
-                            width: 40,
-                          )),
-                      itemCount: 10,
-                      dragStartBehavior: DragStartBehavior.start,
-                      physics: BouncingScrollPhysics(),
-                      scrollDirection: Axis.horizontal,
-                      itemBuilder: (context, index) => MyCard(
-                            // width:300,
-                            image: 'assets/images/smile.png',
-                            text:
-                                'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
-                            title: 'Project',
-                          )),
+                SizedBox(
+                  height: 20,
+                ),
+                Center(
+                  child: Container(
+                    margin: EdgeInsets.symmetric(horizontal: 200),
+                    color: Colors.white,
+                    child: Text(
+                      'Serving customer with different quality product. Solving User and Business Problem\nwith exceptional app Solving User and Business Problem with exceptional app',
+                      style:
+                          TextStyle(fontSize: 16, fontFamily: 'Poppins-Light'),
+                    ),
+                  ),
+                ),
+                Stack(
+                  children: [
+                    Container(
+                      height: 650,
+                      width: double.infinity,
+                      // color: Colors.black54,
+                      padding:
+                          EdgeInsets.symmetric(vertical: 30, horizontal: 30),
+                      child: ListView.separated(
+                          separatorBuilder: ((context, index) => SizedBox(
+                                width: 40,
+                              )),
+                          itemCount: 10,
+                          dragStartBehavior: DragStartBehavior.start,
+                          physics: BouncingScrollPhysics(),
+                          scrollDirection: Axis.horizontal,
+                          itemBuilder: (context, index) =>
+                              //  MyCard(
+                              //       // width:300,
+                              //       image: 'assets/images/smile.png',
+                              //       text:
+                              //           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
+                              //       title: 'Project',
+                              //     )
+                              Projectcard()),
+                    ),
+                    Positioned(
+                      left: 20,
+                      top: 200,
+                      child: ScrollButton(icon: Icons.arrow_back_ios_outlined, action: (){}),
+                    ),
+                    Positioned(
+                      right: 20,
+                      top: 200,
+                      child: ScrollButton(icon: Icons.arrow_forward_ios_rounded, action: (){}),
+                    )
+                  ],
                 ),
                 SizedBox(
                   height: 10,
@@ -502,3 +535,5 @@ class _HomePageState extends State<HomePage>
     );
   }
 }
+
+

@@ -55,7 +55,7 @@ class _AppBarTextState extends State<AppBarText> {
             widget.text,
             style: TextStyle(
               fontSize: 15,
-              color: change,
+              color: 1 == widget.id ? yellowColor : change,
               decoration: 1 == widget.id
                   ? TextDecoration.combine([TextDecoration.underline])
                   : TextDecoration.none,
