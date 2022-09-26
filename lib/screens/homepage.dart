@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_state.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
@@ -15,6 +16,7 @@ import '../widget/footer.dart';
 import '../widget/message_input.dart';
 import '../widget/scrollbutton.dart';
 import '../widget/smallbutton.dart';
+import 'package:carousel_slider/carousel_slider.dart';
 
 class HomePage extends StatefulWidget {
   HomePage({Key? key}) : super(key: key);
@@ -493,33 +495,55 @@ class _HomePageState extends State<HomePage>
                       // color: Colors.black54,
                       padding:
                           EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-                      child: ListView.separated(
-                          separatorBuilder: ((context, index) => SizedBox(
-                                width: 40,
-                              )),
-                          itemCount: 10,
-                          dragStartBehavior: DragStartBehavior.start,
-                          physics: BouncingScrollPhysics(),
-                          scrollDirection: Axis.horizontal,
-                          itemBuilder: (context, index) =>
-                              //  MyCard(
-                              //       // width:300,
-                              //       image: 'assets/images/smile.png',
-                              //       text:
-                              //           'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum',
-                              //       title: 'Project',
-                              //     )
-                              Projectcard()),
+
+                      // child: CarouselSlider.builder(
+                      //     itemCount: 10,
+                      //     carouselController: buttonCarouselController,
+                      //     itemBuilder: (_, ind, indx) {
+                      //       return Projectcard();
+                      //     },
+                      //     options: CarouselOptions()),
+
+                      child: CarouselSlider(
+                        carouselController: buttonCarouselController,
+                          items: List.generate(10, (index) {
+                            return Projectcard();
+                          }),
+                          options: CarouselOptions(
+                            autoPlay: true
+
+                          )),
+
+                      // child: ListView.separated(
+                      //   controller:myController,
+                      //     separatorBuilder: ((context, index) => SizedBox(
+                      //           width: 40,
+                      //         )),
+                      //     itemCount: 10,
+                      //     dragStartBehavior: DragStartBehavior.start,
+                      //     physics: BouncingScrollPhysics(),
+                      //     scrollDirection: Axis.horizontal,
+                      //     itemBuilder: (context, index) =>
+                      //         Projectcard()),
                     ),
                     Positioned(
                       left: 20,
                       top: 200,
-                      child: ScrollButton(icon: Icons.arrow_back_ios_outlined, action: (){}),
+                      child: ScrollButton(
+                          icon: Icons.arrow_back_ios_outlined,
+                          action: () {
+                            buttonCarouselController.previousPage();
+                            // myController.jumpTo(1);
+                          }),
                     ),
                     Positioned(
                       right: 20,
                       top: 200,
-                      child: ScrollButton(icon: Icons.arrow_forward_ios_rounded, action: (){}),
+                      child: ScrollButton(
+                          icon: Icons.arrow_forward_ios_rounded,
+                          action: () {
+                            buttonCarouselController.nextPage();
+                          }),
                     )
                   ],
                 ),
@@ -534,6 +558,7 @@ class _HomePageState extends State<HomePage>
       ),
     );
   }
+
+  CarouselController buttonCarouselController = CarouselController();
+  ScrollController myController = ScrollController();
 }
-
-
