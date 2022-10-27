@@ -1,20 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio_web/layout.dart';
 import 'package:portfolio_web/screens/contact_page.dart';
-import 'package:portfolio_web/screens/homepage.dart';
+import 'package:portfolio_web/screens/web/web_home.dart';
 
 void main() {
-  runApp( MyApp());
+  runApp(MyApp());
 }
 
 class MyApp extends StatelessWidget {
   // const MyApp({Key? key}) : super(key: key);
-   final GoRouter _router = GoRouter(
+  final GoRouter _router = GoRouter(
     routes: <GoRoute>[
       GoRoute(
         path: '/',
-        builder: (BuildContext context, GoRouterState state) =>
-            HomePage(),
+        builder: (BuildContext context, GoRouterState state) => Responsive(),
         routes: <GoRoute>[
           GoRoute(
             path: 'contact',
