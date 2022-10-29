@@ -19,6 +19,8 @@ import '../../widget/scrollbutton.dart';
 import '../../widget/smallbutton.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../mobile/home.dart';
+
 class WebHome extends StatefulWidget {
   WebHome({Key? key}) : super(key: key);
 
@@ -33,11 +35,13 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height);
+    final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Scaffold(
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
-            expandedHeight: 100,
+            expandedHeight: MediaQuery.of(context).size.height / 9.69,
             backgroundColor: bgColor,
             floating: true,
             // pinned: true,
@@ -68,11 +72,11 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       child: Image.asset('assets/images/logo.png'),
                     ),
                     SizedBox(
-                      width: 350,
+                      width: width / 5.48,
                     ),
                     Container(
-                      width: 500,
-                      height: 200,
+                      width: width / 3.84,
+                      height: height / 4.84,
                       // color: Colors.black,
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -118,14 +122,15 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 child: Stack(
                   children: [
                     Positioned(
-                      bottom: 0,
-                      right: 150,
-                      top: 100,
+                      // bottom: 0,
+                      bottom: width<1700? -200:0,
+                      right: MediaQuery.of(context).size.width / 12.8,
+                      top: height / 9.69,
                       child: Container(
-                        height: 1000,
-                        width: 800,
-                        // color: Colors.black,
+                        height: MediaQuery.of(context).size.height / 0.96,
+                        width: MediaQuery.of(context).size.width / 2.4,
                         decoration: const BoxDecoration(
+                        // color: Colors.black,
                           image: DecorationImage(
                               image: AssetImage('assets/images/my.png'),
                               fit: BoxFit.contain),
@@ -133,39 +138,39 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       ),
                     ),
                     Positioned(
-                      left: 50,
-                      top: 100,
+                      left: width / 38.4,
+                      top: height / 9.69,
                       child: Container(
-                        width: 600,
-                        height: 700,
+                        width: width / 3.2,
+                        height: height / 1.38,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'Hy! I Am',
                               style: TextStyle(
-                                  fontSize: 48,
+                                  fontSize: width / 48,
                                   color: Colors.white,
                                   fontWeight: FontWeight.bold),
                             ),
-                            const Text(
+                            Text(
                               'Matthew Emmanuel',
                               style: TextStyle(
-                                fontSize: 48,
+                                fontSize: width / 40,
                                 fontWeight: FontWeight.bold,
                                 letterSpacing: 1.2,
                                 color: yellowColor,
                               ),
                             ),
-                            const Text(
+                            Text(
                               'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
                               style: TextStyle(
-                                color: Colors.white,
-                              ),
+                                  color: Colors.white,
+                                  fontSize: height / 48.45),
                               // overflow: TextOverflow.ellipsis,
                             ),
                             SizedBox(
-                              height: 40,
+                              height: height / 24.22,
                             ),
                             Row(
                               children: [
@@ -173,7 +178,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                   text: 'Hire Me',
                                   function: () {},
                                 ),
-                                SizedBox(width: 30),
+                                SizedBox(width: width / 64),
                                 SmallButton(
                                   text: 'Contact Me',
                                   function: () {
@@ -189,7 +194,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     Positioned(
                         left: 50,
                         // top: 200,
-                        bottom: 120,
+                        bottom: height / 8.075,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
@@ -201,7 +206,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             SizedBox(
-                              height: 10,
+                              height: height / 96.9,
                             ),
                             Row(
                               children: [
@@ -214,8 +219,8 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                           ],
                         )),
                     Positioned(
-                      bottom: 120,
-                      left: 550,
+                      bottom: height / 8.075,
+                      left: width / 3.49,
                       child: Description(
                           animate: _animation,
                           text:
@@ -224,7 +229,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     ),
                     Positioned(
                       bottom: 10,
-                      right: 50,
+                      right: width / 38.4,
                       child: Description(
                           animate: _animation,
                           text:
@@ -232,16 +237,16 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                           image: 'assets/images/ribbon.png'),
                     ),
                     Positioned(
-                      right: 50,
-                      top: 100,
+                      right: width / 38.4,
+                      top: height / 9.69,
                       child: Description(
                         text: "100% Customer\nSatifactory",
                         image: 'assets/images/award.png',
                       ),
                     ),
                     Positioned(
-                      left: 50,
-                      bottom: 20,
+                      left: width / 38.4,
+                      bottom: height / 48.45, //20
                       child: RichText(
                         text: TextSpan(
                             style: TextStyle(
@@ -264,14 +269,14 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 ),
               ),
               Container(
-                height: 1500,
+                height: height / 0.646,
                 width: double.infinity,
                 color: whiteColor,
                 child: Stack(
                   children: [
                     Positioned(
-                      top: 50,
-                      left: 100,
+                      top: height / 19.38,
+                      left: width / 19.2,
                       child: MyCard(
                           image: 'assets/images/ribbon.png',
                           title: 'Design',
@@ -279,21 +284,21 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.'),
                     ),
                     Positioned(
-                        left: 100,
-                        top: 500,
+                        left: width / 19.2,
+                        top: height / 1.938,
                         child: Row(
                           children: [
                             MyCard(
-                                width: 300,
+                                width: width / 6.4,
                                 image: 'assets/images/smile.png',
                                 title: 'UI/UX',
                                 text:
                                     'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
                             SizedBox(
-                              width: 80,
+                              width: width / 24,
                             ),
                             MyCard(
-                                width: 300,
+                                width: width / 6.4,
                                 image: 'assets/images/sunglasses.png',
                                 title: 'Developer',
                                 text:
@@ -301,58 +306,60 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                           ],
                         )),
                     Positioned(
-                      right: 150,
-                      top: 50,
+                      right: width / 12.8,
+                      top: height / 19.38,
                       child: Container(
-                        width: 500,
+                        width: width / 3.84,
                         child: Column(
                           children: [
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                const Text(
+                                Text(
                                   'My awasome',
                                   style: TextStyle(
-                                      fontSize: 50,
+                                      fontSize: width / 38.4,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                const Text('Services',
+                                Text('Services',
                                     style: TextStyle(
-                                        fontSize: 50,
+                                        fontSize: width / 38.4,
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xFF8773EE))),
                                 const Text(
                                     'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
-                                const SizedBox(
-                                  height: 20,
+                                SizedBox(
+                                  height: height / 48.45,
                                 ),
                                 SmallButton(
                                     text: 'Download CV', function: () {}),
                               ],
                             ),
-                            const SizedBox(
-                              height: 20,
+                            SizedBox(
+                              height: height / 48.45,
                             ),
                             RichText(
-                                text: TextSpan(
-                                    style: TextStyle(
-                                        fontSize: 30,
-                                        fontWeight: FontWeight.bold,
-                                        fontFamily: 'Poppins'),
-                                    children: [
+                              text: TextSpan(
+                                style: TextStyle(
+                                    fontSize: height / 32.3,
+                                    fontWeight: FontWeight.bold,
+                                    fontFamily: 'Poppins'),
+                                children: const [
                                   TextSpan(text: 'Get In '),
                                   TextSpan(
                                       text: 'Touch!',
                                       style:
                                           TextStyle(color: Color(0xFF3F8E00)))
-                                ])),
+                                ],
+                              ),
+                            ),
                             // const Text(
                             //   'Get In Touch',
                             // style: TextStyle(
                             //     fontSize: 30, fontWeight: FontWeight.bold),
                             // ),
                             SizedBox(
-                              height: 10,
+                              height: height / 96.9,
                             ),
                             MessageInput(
                                 title: 'E-mail',
@@ -366,35 +373,36 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               line: 5,
                             ),
                             SizedBox(
-                              height: 20,
+                              height: height / 48.45,
                             ),
                             LargeButton(
                               text: 'Submit',
                               function: () {},
-                              width: 400,
+                              width: width / 4.8,
                             )
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                      bottom: 50,
-                      left: 100,
+                      bottom: width / 78.4,
+                      left: width / 19.2,
                       child: Container(
-                        width: 500,
+                        width: width / 3.84,
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text('Clients get always',
+                            Text('Clients get always',
                                 style: TextStyle(
-                                    fontSize: 45, fontWeight: FontWeight.bold)),
+                                    fontSize: height / 21.53,
+                                    fontWeight: FontWeight.bold)),
                             RichText(
-                              text: const TextSpan(
+                              text: TextSpan(
                                 style: TextStyle(
                                     fontFamily: 'Poppins',
-                                    fontSize: 45,
+                                    fontSize: height / 21.53,
                                     fontWeight: FontWeight.bold),
-                                children: [
+                                children: const [
                                   TextSpan(
                                       text: 'exceptional ',
                                       style: TextStyle(color: yellowColor)),
@@ -410,34 +418,41 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                             ),
                             const Text(
                                 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la'),
-                            const SizedBox(
-                              height: 10,
+                            SizedBox(
+                              height: height / 96.9,
                             ),
-                            const Text('1. Hardworks',
+                            Text('1. Hardworks',
                                 style: TextStyle(
-                                    fontSize: 17,
+                                    fontSize: height / 48.45,
                                     fontWeight: FontWeight.w700,
                                     color: Colors.black87)),
-                            const Text('2. Clean Code',
-                                style: TextStyle(
-                                    fontSize: 17,
-                                    fontWeight: FontWeight.w700,
-                                    color: Colors.black87)),
-                            const Text('3. Deligent and Commitment',
-                                style: TextStyle(
-                                    fontWeight: FontWeight.w700,
-                                    fontSize: 17,
-                                    color: Colors.black87)),
+                            Text(
+                              '2. Clean Code',
+                              style: TextStyle(
+                                  fontSize: height / 48.45,
+                                  fontWeight: FontWeight.w700,
+                                  color: Colors.black87),
+                            ),
+                            Text(
+                              '3. Deligent and Commitment',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: height / 48.45,
+                                  color: Colors.black87),
+                            ),
+                             SizedBox(
+                              height: height/48.45,
+                            ),
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                        right: 50,
+                        right: width / 38.4,
                         bottom: 0,
                         child: Container(
-                          width: 600,
-                          height: 700,
+                          width: width / 3.2,
+                          height: height / 1.384,
                           decoration: BoxDecoration(
                               // color: Colors.black26,
 
@@ -448,33 +463,56 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                   fit: BoxFit.contain)),
                         )),
                     Positioned(
-                      bottom: 500,
-                      right: 70,
+                      bottom: height / 1.938,
+                      right: width / 27.428,
                       child: Image.asset(
                         'assets/images/ellipse.png',
-                        height: 30,
-                        width: 30,
+                        height: height / 32.3,
+                        width: height / 32.3,
                       ),
                     ),
                     Positioned(
-                        bottom: 150,
-                        right: 500,
+                        bottom: height / 6.46,
+                        right: width / 3.84,
                         child: Container(
-                          width: 300,
-                          child: Text(
-                              '"Lorem Ipsum is Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry" --- Dev Matcot',
-                              style: TextStyle(fontSize: 20)),
+                          width: width / 6.4,
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                'Contatct Info',
+                                style: TextStyle(
+                                    fontSize: height/38.76, fontWeight: FontWeight.bold),
+                              ),
+                              ContactDetails(
+                                  icon: Icons.phone,
+                                  title: 'Phone',
+                                  info: '08108281494 / 07064610605'),
+                              ContactDetails(
+                                  icon: Icons.email,
+                                  title: 'E-mail',
+                                  info: 'emmanuel\nmatthew382@gmail.com'),
+                              ContactDetails(
+                                  icon: FontAwesomeIcons.twitter,
+                                  title: 'Twitter',
+                                  info: 'twitter.com/devmatcot'),
+                            ],
+                          ),
+                          // child: Text(
+                          //     '"Lorem Ipsum is Simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry" --- Dev Matcot',
+                          //     style: TextStyle(fontSize: 20)),
                         ))
                   ],
                 ),
               ),
               Container(
-                height: 70,
+                height: height / 13.84,
                 width: double.infinity,
                 child: Center(
                   child: Text(
                     'Recent Projects',
-                    style: TextStyle(fontSize: 30, fontWeight: FontWeight.bold),
+                    style: TextStyle(
+                        fontSize: height / 32.3, fontWeight: FontWeight.bold),
                   ),
                 ),
                 decoration: BoxDecoration(
@@ -489,7 +527,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
               ),
               Center(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: 200),
+                  margin: EdgeInsets.symmetric(horizontal: width/9.6),
                   color: Colors.white,
                   child: Text(
                     'Serving customer with different quality product. Solving User and Business Problem\nwith exceptional app Solving User and Business Problem with exceptional app',
@@ -516,9 +554,9 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     child: CarouselSlider(
                         carouselController: buttonCarouselController,
                         items: List.generate(10, (index) {
-                          return Projectcard();
+                          return Projectcard(heigth: height/2.422,decription: width/3.84, );
                         }),
-                        options: CarouselOptions(autoPlay: true)),
+                        options: CarouselOptions(autoPlay: true, )),
 
                     // child: ListView.separated(
                     //   controller:myController,
@@ -533,8 +571,8 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     //         Projectcard()),
                   ),
                   Positioned(
-                    left: 20,
-                    top: 200,
+                    left: width / 96,
+                    top: height / 4.84,
                     child: ScrollButton(
                         icon: Icons.arrow_back_ios_outlined,
                         action: () {
@@ -543,8 +581,8 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                         }),
                   ),
                   Positioned(
-                    right: 20,
-                    top: 200,
+                    right: width / 96,
+                    top: height / 4.84,
                     child: ScrollButton(
                         icon: Icons.arrow_forward_ios_rounded,
                         action: () {
