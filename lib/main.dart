@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_web/layout.dart';
 import 'package:portfolio_web/screens/contact_page.dart';
+import 'package:portfolio_web/screens/testimonies_page.dart';
 import 'package:portfolio_web/screens/web/web_home.dart';
 
 void main() {
@@ -20,6 +21,11 @@ class MyApp extends StatelessWidget {
             path: 'contact',
             builder: (BuildContext context, GoRouterState state) =>
                 const ContactPage(),
+          ),
+          GoRoute(
+            path: 'testimonies',
+            builder: (BuildContext context, GoRouterState state) =>
+                 TestimoniesPage(),
           ),
         ],
       ),

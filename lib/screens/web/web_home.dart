@@ -90,7 +90,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               text: 'Portfolio'),
                           AppBarText(
                               function: (() {
-                                context.go('/contact');
+                                context.go('/testimonies');
                               }),
                               id: 3,
                               text: 'Testimonies'),
