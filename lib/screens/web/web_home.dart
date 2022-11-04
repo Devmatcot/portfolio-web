@@ -8,8 +8,9 @@ import 'package:portfolio_web/constant.dart';
 
 import 'package:portfolio_web/widget/card.dart';
 import 'package:portfolio_web/widget/constant.dart';
+import 'package:portfolio_web/widget/download_cv.dart';
 import 'package:portfolio_web/widget/myStack.dart';
-import 'package:portfolio_web/widget/project_card.dart';
+import 'package:portfolio_web/widget/mobile_project_card.dart';
 
 import '../../widget/appbartext.dart';
 import '../../widget/description.dart';
@@ -19,6 +20,7 @@ import '../../widget/scrollbutton.dart';
 import '../../widget/smallbutton.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
+import '../../widget/web_project_card.dart';
 import '../mobile/home.dart';
 
 class WebHome extends StatefulWidget {
@@ -44,25 +46,19 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
             expandedHeight: MediaQuery.of(context).size.height / 9.69,
             backgroundColor: bgColor,
             floating: true,
+            automaticallyImplyLeading: false,
             // pinned: true,
             // excludeHeaderSemantics: true,
 
             snap: true,
-            actions: [
-              Padding(
-                padding: const EdgeInsets.only(top: 30, right: 30),
-                child: Text(
-                  'Download My CV ${MediaQuery.of(context).size.width}',
-                  style: TextStyle(color: yellowColor),
-                ),
-              )
-            ],
+            actions: [DownloadCV()],
             //  toolbarHeight: 100,
             // centerTitle: true,
             // collapsedHeight: 200,
             flexibleSpace: FlexibleSpaceBar(
                 centerTitle: true,
-                titlePadding: EdgeInsets.only(bottom: 30, top: 20),
+                titlePadding:
+                    EdgeInsets.only(bottom: height / 32.2, top: height / 48.45),
                 // expandedTitleScale: 50,
                 title: Row(
                   // mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -86,6 +82,12 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               function: (() {
                                 context.go('/contact');
                               }),
+                              text: 'About',
+                              id: 4),
+                          AppBarText(
+                              function: (() {
+                                context.go('/contact');
+                              }),
                               id: 2,
                               text: 'Portfolio'),
                           AppBarText(
@@ -100,6 +102,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               }),
                               text: 'Contact',
                               id: 4),
+
                           // SmallButton(text: 'My CV', function: (){}),
                         ],
                       ),
@@ -123,14 +126,14 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                   children: [
                     Positioned(
                       // bottom: 0,
-                      bottom: width<1700? -200:0,
+                      bottom: width < 1700 ? -200 : 0,
                       right: MediaQuery.of(context).size.width / 12.8,
                       top: height / 9.69,
                       child: Container(
                         height: MediaQuery.of(context).size.height / 0.96,
                         width: MediaQuery.of(context).size.width / 2.4,
                         decoration: const BoxDecoration(
-                        // color: Colors.black,
+                          // color: Colors.black,
                           image: DecorationImage(
                               image: AssetImage('assets/images/my.png'),
                               fit: BoxFit.contain),
@@ -163,7 +166,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             Text(
-                              'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+                              'Full Stack Software Developer\nI Specialize in building high quality mobile and web application.\nI have a strong passion for providing solution to business.',
                               style: TextStyle(
                                   color: Colors.white,
                                   fontSize: height / 48.45),
@@ -177,6 +180,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                 SmallButton(
                                   text: 'Hire Me',
                                   function: () {},
+                                  padding: height / 92.9,
                                 ),
                                 SizedBox(width: width / 64),
                                 SmallButton(
@@ -184,6 +188,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                   function: () {
                                     context.go('/contact');
                                   },
+                                  padding: height / 92.9,
                                 )
                               ],
                             ),
@@ -198,10 +203,10 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            const Text(
+                            Text(
                               'My Stack',
                               style: TextStyle(
-                                fontSize: 20,
+                                fontSize: height / 48.45,
                                 color: whiteColor,
                               ),
                             ),
@@ -210,10 +215,18 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                             ),
                             Row(
                               children: [
-                                MyStack(image: 'assets/images/flutter.png'),
-                                MyStack(image: 'assets/images/dart.png'),
-                                MyStack(image: 'assets/images/firebase.png'),
-                                MyStack(image: 'assets/images/mongdb.png'),
+                                MyStack(
+                                    height: width / 48,
+                                    image: 'assets/images/flutter.png'),
+                                MyStack(
+                                    height: width / 48,
+                                    image: 'assets/images/dart.png'),
+                                MyStack(
+                                    height: width / 48,
+                                    image: 'assets/images/firebase.png'),
+                                MyStack(
+                                    height: width / 48,
+                                    image: 'assets/images/mongdb.png'),
                               ],
                             ),
                           ],
@@ -228,7 +241,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                           image: 'assets/images/smile.png'),
                     ),
                     Positioned(
-                      bottom: 10,
+                      bottom: height / 96.9,
                       right: width / 38.4,
                       child: Description(
                           animate: _animation,
@@ -269,42 +282,43 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 ),
               ),
               Container(
-                height: height / 0.646,
+                height: height / 0.946,
                 width: double.infinity,
                 color: whiteColor,
                 child: Stack(
                   children: [
-                    Positioned(
-                      top: height / 19.38,
-                      left: width / 19.2,
-                      child: MyCard(
-                          image: 'assets/images/ribbon.png',
-                          title: 'Design',
-                          text:
-                              'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.'),
-                    ),
-                    Positioned(
-                        left: width / 19.2,
-                        top: height / 1.938,
-                        child: Row(
-                          children: [
-                            MyCard(
-                                width: width / 6.4,
-                                image: 'assets/images/smile.png',
-                                title: 'UI/UX',
-                                text:
-                                    'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
-                            SizedBox(
-                              width: width / 24,
-                            ),
-                            MyCard(
-                                width: width / 6.4,
-                                image: 'assets/images/sunglasses.png',
-                                title: 'Developer',
-                                text:
-                                    'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
-                          ],
-                        )),
+                    // Positioned(
+                    //   top: height / 19.38,
+                    //   left: width / 19.2,
+                    //   child: MyCard(
+                    //       image: 'assets/images/ribbon.png',
+                    //       title: 'Design',
+                    //       text:
+                    //           'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.'),
+                    // ),
+                    // Positioned(
+                    //     left: width / 19.2,
+                    //     top: height / 1.938,
+                    //     child: Row(
+                    //       children: [
+                    //         MyCard(
+                    //             width: width / 6.4,
+                    //             image: 'assets/images/smile.png',
+                    //             title: 'UI/UX',
+                    //             text:
+                    //                 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
+                    //         SizedBox(
+                    //           width: width / 24,
+                    //         ),
+                    //         MyCard(
+                    //             width: width / 6.4,
+                    //             image: 'assets/images/sunglasses.png',
+                    //             title: 'Developer',
+                    //             text:
+                    //                 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
+                    //       ],
+                    //     ),
+                    //     ),
                     Positioned(
                       right: width / 12.8,
                       top: height / 19.38,
@@ -316,7 +330,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
                                 Text(
-                                  'My awasome',
+                                  'Get My awasome',
                                   style: TextStyle(
                                       fontSize: width / 38.4,
                                       fontWeight: FontWeight.bold),
@@ -332,7 +346,10 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                   height: height / 48.45,
                                 ),
                                 SmallButton(
-                                    text: 'Download CV', function: () {}),
+                                  text: 'Download CV',
+                                  function: () {},
+                                  padding: height / 92.9,
+                                ),
                               ],
                             ),
                             SizedBox(
@@ -385,7 +402,8 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       ),
                     ),
                     Positioned(
-                      bottom: width / 78.4,
+                      // bottom: width / 78.4,
+                      top: height / 19.38,
                       left: width / 19.2,
                       child: Container(
                         width: width / 3.84,
@@ -440,31 +458,32 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                   fontSize: height / 48.45,
                                   color: Colors.black87),
                             ),
-                             SizedBox(
-                              height: height/48.45,
+                            SizedBox(
+                              height: height / 48.45,
                             ),
                           ],
                         ),
                       ),
                     ),
                     Positioned(
-                        right: width / 38.4,
-                        bottom: 0,
-                        child: Container(
-                          width: width / 3.2,
-                          height: height / 1.384,
-                          decoration: BoxDecoration(
-                              // color: Colors.black26,
-
-                              image: DecorationImage(
-                                  image: AssetImage(
-                                    'assets/images/mypic.png',
-                                  ),
-                                  fit: BoxFit.contain)),
-                        )),
+                      right: width / 38.4,
+                      bottom: 0,
+                      left: width / 38.4,
+                      child: Container(
+                        width: width / 3.2,
+                        height: height / 1.384,
+                        decoration: const BoxDecoration(
+                            // color: Colors.black26,
+                            image: DecorationImage(
+                                image: AssetImage(
+                                  'assets/images/mypic.png',
+                                ),
+                                fit: BoxFit.contain)),
+                      ),
+                    ),
                     Positioned(
                       bottom: height / 1.938,
-                      right: width / 27.428,
+                      left: width / 27.428,
                       child: Image.asset(
                         'assets/images/ellipse.png',
                         height: height / 32.3,
@@ -472,22 +491,23 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       ),
                     ),
                     Positioned(
-                        bottom: height / 6.46,
-                        right: width / 3.84,
+                        top: height / 1.46,
+                        left: width / 19.2,
                         child: Container(
-                          width: width / 6.4,
+                          // width: width / 6.4,
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Text(
                                 'Contatct Info',
                                 style: TextStyle(
-                                    fontSize: height/38.76, fontWeight: FontWeight.bold),
+                                    fontSize: height / 38.76,
+                                    fontWeight: FontWeight.bold),
                               ),
                               ContactDetails(
                                   icon: Icons.phone,
                                   title: 'Phone',
-                                  info: '08108281494 / 07064610605'),
+                                  info: '+2348108281494 / +2347064610605'),
                               ContactDetails(
                                   icon: Icons.email,
                                   title: 'E-mail',
@@ -523,52 +543,45 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: height / 48.45,
               ),
               Center(
                 child: Container(
-                  margin: EdgeInsets.symmetric(horizontal: width/9.6),
+                  margin: EdgeInsets.symmetric(horizontal: width / 9.6),
                   color: Colors.white,
                   child: Text(
                     'Serving customer with different quality product. Solving User and Business Problem\nwith exceptional app Solving User and Business Problem with exceptional app',
-                    style: TextStyle(fontSize: 16, fontFamily: 'Poppins-Light'),
+                    style: TextStyle(
+                        fontSize: height / 48.45,
+                        fontFamily: 'Poppins',
+                        fontWeight: FontWeight.bold),
+                    textAlign: TextAlign.center,
                   ),
                 ),
               ),
               Stack(
                 children: [
                   Container(
-                    height: 650,
+                    height: height / 1.38,
                     width: double.infinity,
                     // color: Colors.black54,
-                    padding: EdgeInsets.symmetric(vertical: 30, horizontal: 30),
-
-                    // child: CarouselSlider.builder(
-                    //     itemCount: 10,
-                    //     carouselController: buttonCarouselController,
-                    //     itemBuilder: (_, ind, indx) {
-                    //       return Projectcard();
-                    //     },
-                    //     options: CarouselOptions()),
+                    padding: EdgeInsets.symmetric(
+                        vertical: height / 32.3, horizontal: height / 32.3),
 
                     child: CarouselSlider(
-                        carouselController: buttonCarouselController,
-                        items: List.generate(10, (index) {
-                          return Projectcard(heigth: height/2.422,decription: width/3.84, );
-                        }),
-                        options: CarouselOptions(autoPlay: true, )),
-
-                    // child: ListView.separated(
-                    //   controller:myController,
-                    //     separatorBuilder: ((context, index) => SizedBox(
-                    //           width: 40,
-                    //         )),
-                    //     itemCount: 10,
-                    //     dragStartBehavior: DragStartBehavior.start,
-                    //     physics: BouncingScrollPhysics(),
-                    //     scrollDirection: Axis.horizontal,
-                    //     itemBuilder: (context, index) =>
-                    //         Projectcard()),
+                      carouselController: buttonCarouselController,
+                      items: List.generate(10, (index) {
+                        return WebProjectcard(
+                          // heigth: height / 2.422,
+                          imageWidth: width / 2.13,
+                          Imageheigth: height / 1.38,
+                          decription: width / 3.84,
+                        );
+                      }),
+                      options: CarouselOptions(
+                          // autoPlay: true,
+                          viewportFraction: 1),
+                    ),
                   ),
                   Positioned(
                     left: width / 96,

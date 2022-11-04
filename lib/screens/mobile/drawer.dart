@@ -21,10 +21,11 @@ class MobileDrawer extends StatelessWidget {
           SizedBox(
             height: 50,
           ),
-          DrawerItems(title: 'Home'),
-          DrawerItems(title: 'Portfolio'),
-          DrawerItems(title: 'Testimonies'),
-          DrawerItems(title: 'Contact'),
+          DrawerItems(tap: (){context.go('/home');},title: 'Home'),
+          DrawerItems(tap: (){context.go('/contact');},title: 'About', ),
+          DrawerItems(tap: (){context.go('/contact');},title: 'Portfolio'),
+          DrawerItems(tap: (){context.go('/testimonies');},title: 'Testimonies'),
+          DrawerItems(tap: (){context.go('/contact');},title: 'Contact'),
           // DrawerItems(title: 'Home'),
           // AppBarText(function: (() {}), id: 1, text: 'Home'),
           // SizedBox(
@@ -56,19 +57,23 @@ class MobileDrawer extends StatelessWidget {
 
 class DrawerItems extends StatelessWidget {
   String title;
-  DrawerItems({required this.title});
+  VoidCallback tap;
+  DrawerItems({required this.title, required this.tap});
 
   @override
   Widget build(BuildContext context) {
-    return Container(
-      height: 30,
-      // width: double.infinity,
-      margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-
-      child: FittedBox(
-        child: Text(
-          title,
-          style: TextStyle(fontSize: 30, color: whiteColor),
+    return GestureDetector(
+      onTap: tap,
+      child: Container(
+        height: 30,
+        // width: double.infinity,
+        margin: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+    
+        child: FittedBox(
+          child: Text(
+            title,
+            style: TextStyle(fontSize: 30, color: whiteColor),
+          ),
         ),
       ),
     );

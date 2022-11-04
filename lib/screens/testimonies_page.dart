@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio_web/screens/mobile/drawer.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/scrollbutton.dart';
 
@@ -22,11 +23,13 @@ class TestimoniesPage extends StatelessWidget {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bgColor,
+
         elevation: 0,
-        automaticallyImplyLeading: false,
+        automaticallyImplyLeading: width > 600 ? false : true,
+
         // leading: MobileDrawer(),
 
-        actions: [
+        actions:width > 600? [
           AppBarText(
               id: 1,
               text: 'Home',
@@ -38,8 +41,9 @@ class TestimoniesPage extends StatelessWidget {
           AppBarText(
               id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
           AppBarText(id: 4, text: 'Contact', function: () {}, padding: 18.0),
-        ],
+        ]:[],
       ),
+      drawer: MobileDrawer(),
       body: ListView(
         children: [
           Container(
@@ -54,15 +58,20 @@ class TestimoniesPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 70,
+                  height: 40,
                 ),
                 Text(
                   'What Our Client Says About Us!',
                   style: TextStyle(
                       color: whiteColor,
-                      fontSize: 40,
+                      fontSize: 50,
                       fontWeight: FontWeight.w600),
                 ),
+                 Text(
+                'We are looking forward to add your testimonies to the list!',
+                textAlign: TextAlign.center,
+                style: TextStyle(fontSize: 20, color: yellowColor),
+              ),
                 SizedBox(
                   height: 70,
                 ),
@@ -71,7 +80,8 @@ class TestimoniesPage extends StatelessWidget {
                   width: width,
                   child: CarouselSlider(
                     carouselController: buttonCarouselController,
-                    options: CarouselOptions(viewportFraction: 1),
+                    options:
+                        CarouselOptions(viewportFraction: 1, autoPlay: true),
                     items: List.generate(5, (index) => MessagesContainer()),
                     // child: ListView.builder(
                     //   itemCount: 5,
@@ -127,7 +137,9 @@ class MessagesContainer extends StatelessWidget {
       height: 500,
       width: 900,
       decoration: BoxDecoration(
-          color: whiteColor, borderRadius: BorderRadius.circular(30)),
+        color: whiteColor,
+        borderRadius: BorderRadius.circular(30),
+      ),
       child: Column(
         children: [
           Row(
@@ -139,8 +151,9 @@ class MessagesContainer extends StatelessWidget {
                     height: 110,
                     width: 110,
                     decoration: BoxDecoration(
-                        shape: BoxShape.circle,
-                        border: Border.all(color: blackColor, width: 2)),
+                      shape: BoxShape.circle,
+                      border: Border.all(color: blackColor, width: 2),
+                    ),
                     child: Container(
                       height: 100,
                       width: 100,

@@ -4,12 +4,14 @@ import 'package:portfolio_web/widget/constant.dart';
 class SmallButton extends StatefulWidget {
   String text;
   bool showShadow;
+  double padding;
   VoidCallback function;
   SmallButton({
     Key? key,
     required this.text,
-   this.showShadow = true,
+    this.showShadow = true,
     required this.function,
+    required this.padding
   }) : super(key: key);
 
   @override
@@ -34,27 +36,28 @@ class _SmallButtonState extends State<SmallButton> {
       child: GestureDetector(
         onTap: widget.function,
         child: Container(
-          padding: EdgeInsets.all(10),
+          padding: EdgeInsets.all(widget.padding),
           child: Text(
             '  ${widget.text} ',
             style: TextStyle(color: blackColor),
           ),
           decoration: BoxDecoration(
               color: change,
-              boxShadow: widget.showShadow ? [
-                BoxShadow(
-                    blurRadius: 6,
-                    color: blackColor.withOpacity(0.4),
-                    offset: Offset(4, 4),
-                    )
-              ] : [],
+              boxShadow: widget.showShadow
+                  ? [
+                      BoxShadow(
+                        blurRadius: 6,
+                        color: blackColor.withOpacity(0.4),
+                        offset: Offset(4, 4),
+                      )
+                    ]
+                  : [],
               borderRadius: BorderRadius.circular(10)),
         ),
       ),
     );
   }
 }
-
 
 class LargeButton extends StatefulWidget {
   String text;
@@ -99,25 +102,27 @@ class _LargeButtonState extends State<LargeButton> {
                 '  ${widget.text} ',
                 style: TextStyle(color: whiteColor, fontSize: 20),
               ),
-              SizedBox(width: 20,),
-              const Icon(Icons.send_rounded, color:Colors.white, size: 30)
+              SizedBox(
+                width: 20,
+              ),
+              const Icon(Icons.send_rounded, color: Colors.white, size: 30)
             ],
           ),
           decoration: BoxDecoration(
               color: change,
               boxShadow: [
                 BoxShadow(
-                    blurRadius: 4,
-                    spreadRadius: 3,
-                    color: Color(0xFF62BA1B).withOpacity(0.3),
-                    // offset: Offset(0, -2)
-                    ),
-                    //  BoxShadow(
-                    // blurRadius: 6,
-                    // // spreadRadius: 3,
-                    // color: Color(0xFF62BA1B).withOpacity(0.5),
-                    // // offset: Offset(-2, 4)
-                    // )
+                  blurRadius: 4,
+                  spreadRadius: 3,
+                  color: Color(0xFF62BA1B).withOpacity(0.3),
+                  // offset: Offset(0, -2)
+                ),
+                //  BoxShadow(
+                // blurRadius: 6,
+                // // spreadRadius: 3,
+                // color: Color(0xFF62BA1B).withOpacity(0.5),
+                // // offset: Offset(-2, 4)
+                // )
               ],
               borderRadius: BorderRadius.circular(5)),
         ),

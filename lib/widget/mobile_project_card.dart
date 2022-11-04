@@ -17,9 +17,9 @@ class Projectcard extends StatelessWidget {
             height: heigth,
             // width: 400,
             child: ClipRRect(
-              borderRadius: BorderRadius.circular(10),
+              borderRadius: BorderRadius.circular(height/41.6),
               child: Image.network(
-                'https://th.bing.com/th/id/OIP.TVb7DFHSTEP2N3doqPfEfgHaFj?pid=ImgDet&w=800&h=600&rs=1',
+                'https://th.bing.com/th/id/R.f1b1fc80248dbc77477a51e012c9c416?rik=p2UlqqTS%2bWQCqw&pid=ImgRaw&r=0',
                 fit: BoxFit.cover,
               ),
             ),
@@ -28,13 +28,13 @@ class Projectcard extends StatelessWidget {
             // )
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 10.0),
+            padding: EdgeInsets.symmetric(vertical: height/51.6),
             child: Text('Project Name',
-                style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold)),
+                style: TextStyle(fontSize: height/41.6, fontWeight: FontWeight.bold)),
           ),
           Container(
               width: decription,
-              padding: EdgeInsets.only(bottom: 10),
+              padding: EdgeInsets.only(bottom: height/41.6),
               child: Text(
                 'Something to read and know about the project done, this is a description of the project and click to read more about it contact me if you like it i will be glad to work with you, description of the project and click to read more about it contact me if you like it i will be glad to work with you',
                 maxLines: 3,
@@ -44,6 +44,7 @@ class Projectcard extends StatelessWidget {
             text: 'Learn More >>',
             function: () {},
             showShadow: false,
+            padding: height / 92.9,
           )
         ],
       ),
