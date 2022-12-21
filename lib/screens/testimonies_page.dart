@@ -29,25 +29,29 @@ class TestimoniesPage extends StatelessWidget {
 
         // leading: MobileDrawer(),
 
-        actions:width > 600? [
-          AppBarText(
-              id: 1,
-              text: 'Home',
-              function: () {
-                context.go('/');
-              },
-              padding: 18.0),
-          AppBarText(id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
-          AppBarText(
-              id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
-          AppBarText(id: 4, text: 'Contact', function: () {}, padding: 18.0),
-        ]:[],
+        actions: width > 600
+            ? [
+                AppBarText(
+                    id: 1,
+                    text: 'Home',
+                    function: () {
+                      context.go('/');
+                    },
+                    padding: 18.0),
+                AppBarText(
+                    id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
+                AppBarText(
+                    id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
+                AppBarText(
+                    id: 4, text: 'Contact', function: () {}, padding: 18.0),
+              ]
+            : [],
       ),
       drawer: MobileDrawer(),
       body: ListView(
         children: [
           Container(
-            height: height,
+            height: 1000,
             width: width,
             decoration: BoxDecoration(
               image: DecorationImage(
@@ -67,11 +71,11 @@ class TestimoniesPage extends StatelessWidget {
                       fontSize: 50,
                       fontWeight: FontWeight.w600),
                 ),
-                 Text(
-                'We are looking forward to add your testimonies to the list!',
-                textAlign: TextAlign.center,
-                style: TextStyle(fontSize: 20, color: yellowColor),
-              ),
+                Text(
+                  'We are looking forward to add your testimonies to the list!',
+                  textAlign: TextAlign.center,
+                  style: TextStyle(fontSize: 20, color: yellowColor),
+                ),
                 SizedBox(
                   height: 70,
                 ),
@@ -107,6 +111,7 @@ class TestimoniesPage extends StatelessWidget {
                     SizedBox(
                       width: 350,
                     ),
+                    // Spacer(),
                     ScrollButton(
                         icon: Icons.arrow_forward_ios_outlined,
                         action: () {
@@ -134,7 +139,7 @@ class MessagesContainer extends StatelessWidget {
   Widget build(BuildContext context) {
     return Container(
       padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      height: 500,
+      height: 300,
       width: 900,
       decoration: BoxDecoration(
         color: whiteColor,

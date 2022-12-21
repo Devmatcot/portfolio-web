@@ -315,7 +315,7 @@ class _MobileHomeState extends State<MobileHome> {
                                         fontSize: height / 39.23,
                                         color: Colors.black87),
                                   ),
-                                 SizedBox(
+                                  SizedBox(
                                     height: height / 33.35,
                                   ),
                                 ],
@@ -328,7 +328,7 @@ class _MobileHomeState extends State<MobileHome> {
                   ),
                 ),
                 Container(
-                  height: height/13.34,
+                  height: height / 13.34,
                   width: double.infinity,
                   color: bgColor,
                   child: Center(
@@ -347,20 +347,26 @@ class _MobileHomeState extends State<MobileHome> {
                       horizontal: MediaQuery.of(context).size.width / 12.8),
                   child: Column(
                     children: [
-                      RichText(
-                        text: TextSpan(
-                          style: TextStyle(
-                              fontSize: height / 33.35,
-                              fontWeight: FontWeight.bold,
-                              fontFamily: 'Poppins'),
-                          children: [
-                            TextSpan(
-                                text:
-                                    'Hey There, Got a project, Job Offer or Consulting work for me? '),
-                            TextSpan(
-                                text: 'Get In Touch With Me ASAP',
-                                style: TextStyle(color: Color(0xFF3F8E00)))
-                          ],
+                      Center(
+                        child: RichText(
+                          text: TextSpan(
+                            style: TextStyle(
+                                fontSize: height / 33.35,
+                                fontWeight: FontWeight.bold,
+                                
+                                fontFamily: 'Poppins'),
+                            children: [
+                              TextSpan(
+                                
+                                  text:
+                                      'Looking to Build Your Next App or\nConsulting work for me? '),
+                                    
+
+                              TextSpan(
+                                  text: 'Get In Touch With Me ASAP',
+                                  style: TextStyle(color: Color(0xFF3F8E00)))
+                            ],
+                          ),
                         ),
                       ),
                       // const Text(
@@ -393,7 +399,7 @@ class _MobileHomeState extends State<MobileHome> {
                       SizedBox(
                         height: height / 33.35,
                       ),
-                           Text(
+                      Text(
                         'Contatct Info',
                         style: TextStyle(
                             fontSize: height / 26.8,
@@ -407,19 +413,18 @@ class _MobileHomeState extends State<MobileHome> {
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
-                         
-                      ContactDetails(
-                          icon: Icons.phone,
-                          title: 'Phone',
-                          info: '08108281494 or 07064610605'),
-                      ContactDetails(
-                          icon: Icons.email,
-                          title: 'E-mail',
-                          info: 'emmanuelmatthew382@gmail.com'),
-                      ContactDetails(
-                          icon: FontAwesomeIcons.twitter,
-                          title: 'Twitter',
-                          info: 'twitter.com/devmatcot'),
+                              ContactDetails(
+                                  icon: Icons.phone,
+                                  title: 'Phone',
+                                  info: '+2348108281494 or +2347064610605'),
+                              ContactDetails(
+                                  icon: Icons.email,
+                                  title: 'E-mail',
+                                  info: 'emmanuelmatthew382@gmail.com'),
+                              ContactDetails(
+                                  icon: FontAwesomeIcons.twitter,
+                                  title: 'Twitter',
+                                  info: 'twitter.com/devmatcot'),
                             ],
                           ),
                         ),
@@ -430,7 +435,6 @@ class _MobileHomeState extends State<MobileHome> {
                 SizedBox(
                   height: height / 33.35,
                 ),
-               
                 Container(
                   height: MediaQuery.of(context).size.height / 12.157,
                   width: double.infinity,
@@ -455,12 +459,14 @@ class _MobileHomeState extends State<MobileHome> {
                 Center(
                   child: Container(
                     margin: EdgeInsets.symmetric(horizontal: height / 66.70),
-                    color: Colors.white,
+                    // color: Colors.white,
                     child: Text(
                       'Solving User and Business Problem With exceptional app Solving User and Business Problem with exceptional app',
-                     textAlign: TextAlign.center,
+                      textAlign: TextAlign.center,
                       style: TextStyle(
-                          fontSize: height / 40.35, fontFamily: 'Poppins', fontWeight: FontWeight.bold),
+                          fontSize: height / 40.35,
+                          fontFamily: 'Poppins',
+                          fontWeight: FontWeight.bold),
                     ),
                   ),
                 ),

@@ -21,28 +21,32 @@ class ContactPage extends StatefulWidget {
 class _ContactPageState extends State<ContactPage> {
   @override
   Widget build(BuildContext context) {
-     final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: MobileDrawer(),
       appBar: AppBar(
         backgroundColor: bgColor,
         elevation: 0,
-        automaticallyImplyLeading: width > 600? false : true,
+        automaticallyImplyLeading: width > 600 ? false : true,
         // leading: MobileDrawer(),
 
-        actions: width > 600? [
-          AppBarText(
-              id: 1,
-              text: 'Home',
-              function: () {
-                context.go('/');
-              },
-              padding: 18.0),
-          AppBarText(id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
-          AppBarText(
-              id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
-          AppBarText(id: 4, text: 'Contact', function: () {}, padding: 18.0),
-        ]:[],
+        actions: width > 600
+            ? [
+                AppBarText(
+                    id: 1,
+                    text: 'Home',
+                    function: () {
+                      context.go('/');
+                    },
+                    padding: 18.0),
+                AppBarText(
+                    id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
+                AppBarText(
+                    id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
+                AppBarText(
+                    id: 4, text: 'Contact', function: () {}, padding: 18.0),
+              ]
+            : [],
       ),
       body: ListView(
         children: [
@@ -70,7 +74,7 @@ class _ContactPageState extends State<ContactPage> {
                   ),
                   SizedBox(height: 20),
                   Text(
-                    'Hey There, Got a project, Job Offer or Consulting work for me? Feel free to contact me ASAP',
+                    'Looking to Build Your Next App or\nConsulting work for me? Feel free to contact me ASAP',
                     style: TextStyle(fontSize: 20),
                     textAlign: TextAlign.center,
                   ),
@@ -114,7 +118,8 @@ class _ContactPageState extends State<ContactPage> {
                           : Alignment.center,
                       child: Container(
                         margin: EdgeInsets.symmetric(
-                            horizontal: MediaQuery.of(context).size.width / 7.7),
+                            horizontal:
+                                MediaQuery.of(context).size.width / 7.7),
                         child: LargeButton(
                             text: 'Send Message', function: () {}, width: 300),
                       )),
@@ -123,7 +128,6 @@ class _ContactPageState extends State<ContactPage> {
               ),
             ),
           ),
-         
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
             width: 500,
@@ -135,26 +139,25 @@ class _ContactPageState extends State<ContactPage> {
                   'Contatct Info',
                   style: TextStyle(fontSize: 25, fontWeight: FontWeight.bold),
                 ),
-              FittedBox(
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                      
-                ContactDetails(
-                    icon: Icons.phone,
-                    title: 'Phone',
-                    info: '+2348108281494 / +2347064610605'),
-                ContactDetails(
-                    icon: Icons.email,
-                    title: 'E-mail',
-                    info: 'emmanuelmatthew382@gmail.com'),
-                ContactDetails(
-                    icon: FontAwesomeIcons.twitter,
-                    title: 'Twitter',
-                    info: 'twitter.com/devmatcot'),
-                  ],
-                ),
-              )
+                FittedBox(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      ContactDetails(
+                          icon: Icons.phone,
+                          title: 'Phone',
+                          info: '+2348108281494 / +2347064610605'),
+                      ContactDetails(
+                          icon: Icons.email,
+                          title: 'E-mail',
+                          info: 'emmanuelmatthew382@gmail.com'),
+                      ContactDetails(
+                          icon: FontAwesomeIcons.twitter,
+                          title: 'Twitter',
+                          info: 'twitter.com/devmatcot'),
+                    ],
+                  ),
+                )
               ],
             ),
           ),
