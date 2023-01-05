@@ -19,7 +19,7 @@ class MyCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-        height: height ?? 400,
+        // height: height ?? 400,
         width: width,
         padding: EdgeInsets.all(15),
         // color: Color.fromRGBO(135, 115, 238, 0.12),
@@ -31,17 +31,17 @@ class MyCard extends StatelessWidget {
               height: 70,
               width: 70,
             ),
-            Text(title,
-                style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700)),
-            Padding(
-              padding: const EdgeInsets.all(5.0),
-              child: Text(
-                text,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 10,
-                textAlign: TextAlign.justify,
-                softWrap: true,
-              ),
+            Text(
+              title,
+              style: TextStyle(fontSize: 25, fontWeight: FontWeight.w700),
+              textAlign: TextAlign.center,
+            ),
+            Text(
+              text,
+              // overflow: TextOverflow.ellipsis,
+              // maxLines: 15,
+              textAlign: TextAlign.justify,
+              // softWrap: true,
             ),
           ],
         ),

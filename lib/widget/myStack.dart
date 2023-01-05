@@ -5,11 +5,9 @@ import 'package:portfolio_web/widget/constant.dart';
 class MyStack extends StatelessWidget {
   String image;
   double height;
-  MyStack({
-    Key? key,
-    required this.image,
-    required this.height
-  }) : super(key: key);
+  double padding;
+  MyStack({Key? key, required this.image, required this.height, this.padding =15})
+      : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -105,18 +105,18 @@ class _MobileHomeState extends State<MobileHome> {
                         ),
                       ),
                       Positioned(
-                        left: MediaQuery.of(context).size.width / 18.6,
+                        left: MediaQuery.of(context).size.width / 20.6,
                         top: MediaQuery.of(context).size.width / 39.3,
                         child: Container(
                           width: MediaQuery.of(context).size.height / 2.423,
                           // height: MediaQuery.of(context).size.height/1.938,
+                          // margin: EdgeInsets.only(right: 20),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: [
                               Container(
                                 // height: 300,
-                                width:
-                                    MediaQuery.of(context).size.width / 1.028,
+                                width: MediaQuery.of(context).size.width / 1.28,
 
                                 // color: Colors.black,
                                 child: Column(
@@ -143,15 +143,19 @@ class _MobileHomeState extends State<MobileHome> {
                                         color: yellowColor,
                                       ),
                                     ),
-                                    Text(
-                                      'Full Stack Software Developer\nI Specialize in building high quality mobile and web application.\nI have a strong passion for providing solution to business.',
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: MediaQuery.of(context)
-                                                  .size
-                                                  .height /
-                                              56.73),
-                                      // overflow: TextOverflow.ellipsis,
+                                    Padding(
+                                      padding:
+                                          EdgeInsets.only(right: width / 30),
+                                      child: Text(
+                                        'Full Stack Software Developer\nI Specialize in building high quality mobile and web application.\nI have a strong passion for providing solution to business.',
+                                        style: TextStyle(
+                                            color: Colors.white,
+                                            fontSize: MediaQuery.of(context)
+                                                    .size
+                                                    .height /
+                                                56.73),
+                                        // overflow: TextOverflow.ellipsis,
+                                      ),
                                     ),
                                   ],
                                 ),
@@ -167,6 +171,7 @@ class _MobileHomeState extends State<MobileHome> {
                       Positioned(
                         top: MediaQuery.of(context).size.height / 3.36,
                         left: MediaQuery.of(context).size.width / 18.6,
+                        // : MediaQuery.of(context).size.width / 18.6,
 
                         // right: 30,
                         child: Column(
@@ -179,9 +184,10 @@ class _MobileHomeState extends State<MobileHome> {
                                   function: () {},
                                   padding: height / 66.7,
                                 ),
+                                // Spacer(),
                                 SizedBox(
                                     width: MediaQuery.of(context).size.width /
-                                        3.275),
+                                        3.75),
                                 SmallButton(
                                   text: 'Download CV',
                                   function: () {
@@ -221,7 +227,7 @@ class _MobileHomeState extends State<MobileHome> {
                         bottom: MediaQuery.of(context).size.height / 8.51,
                         left: MediaQuery.of(context).size.width / 39.3,
                         child: MyStack(
-                          height: width / 13,
+                          height: width / 15,
                           image: 'assets/images/mongdb.png',
                         ),
                       ),
@@ -229,21 +235,22 @@ class _MobileHomeState extends State<MobileHome> {
                         bottom: MediaQuery.of(context).size.height / 8.51,
                         right: MediaQuery.of(context).size.width / 39.3,
                         child: MyStack(
-                            height: width / 13,
+                            height: width / 15,
                             image: 'assets/images/firebase.png'),
                       ),
                       Positioned(
                         bottom: MediaQuery.of(context).size.height / 3.40,
                         left: MediaQuery.of(context).size.width / 39.3,
                         child: MyStack(
-                            height: width / 13,
+                            // padding: width / 18,
+                            height: width / 15,
                             image: 'assets/images/flutter.png'),
                       ),
                       Positioned(
                         bottom: MediaQuery.of(context).size.height / 3.40,
                         right: MediaQuery.of(context).size.width / 39.3,
                         child: MyStack(
-                            height: width / 13,
+                            height: width / 15,
                             image: 'assets/images/dart.png'),
                       ),
                     ],
@@ -268,7 +275,7 @@ class _MobileHomeState extends State<MobileHome> {
                               Column(
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 children: [
-                                  Text('Clients get always',
+                                  Text('Clients\nalways get',
                                       style: TextStyle(
                                           fontSize: height / 22.23,
                                           fontWeight: FontWeight.bold)),
@@ -294,7 +301,7 @@ class _MobileHomeState extends State<MobileHome> {
                                     ),
                                   ),
                                   Text(
-                                      'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la'),
+                                      'With the proliferation of smartphone technology, it is more important than ever for brands to engage with their customers through effective and memorable mobile applications. I believe these apps should be intuitive experiences that solve real problems while engaging and delighting end users. I take pride in building solutions that drive adoption while fostering customer loyalty.'),
                                   SizedBox(
                                     height: height / 66.7,
                                   ),
@@ -303,13 +310,27 @@ class _MobileHomeState extends State<MobileHome> {
                                           fontSize: height / 39.23,
                                           fontWeight: FontWeight.w700,
                                           color: Colors.black87)),
-                                  Text('2. Clean Code',
+                                  Text(
+                                    '2. Attention to Details',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: height / 39.23,
+                                        color: Colors.black87),
+                                  ),
+                                  Text('3. Clean Code',
                                       style: TextStyle(
                                           fontSize: height / 39.23,
                                           fontWeight: FontWeight.w700,
                                           color: Colors.black87)),
                                   Text(
-                                    '3. Deligent and Commitment',
+                                    '4. Deligent and Commitment',
+                                    style: TextStyle(
+                                        fontWeight: FontWeight.w700,
+                                        fontSize: height / 39.23,
+                                        color: Colors.black87),
+                                  ),
+                                  Text(
+                                    '5. Teamwork Spirit',
                                     style: TextStyle(
                                         fontWeight: FontWeight.w700,
                                         fontSize: height / 39.23,
@@ -326,6 +347,74 @@ class _MobileHomeState extends State<MobileHome> {
                       )
                     ],
                   ),
+                ),
+                Container(
+                  height: height / 13.34,
+                  width: double.infinity,
+                  color: bgColor,
+                  child: Center(
+                    child: Text(
+                      'My Services',
+                      style: TextStyle(
+                          color: whiteColor, fontSize: height / 22.23),
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: MyCard(
+                      image: 'assets/images/ribbon.png',
+                      title: 'Design and Develop\nCustom Mobile Apps',
+                      text:
+                          'I Design and Develop custom Mobile Apps services that allow businesses and individuals to meet their specific needs and goals. Whether you need a simple app to showcase your products or a complex, data-driven app to streamline your business processes, I have the skills and expertise to bring your vision to reality. Contact Me today to learn more about how our Design and Develop Custom Mobile Apps services can help you succeed.'),
+                ),
+                Padding(
+                    padding: const EdgeInsets.all(20),
+                    child: MyCard(
+                        // width: width / 6.4,
+                        image: 'assets/images/smile.png',
+                        title:
+                            'Integrating Mobile Apps with Backend services and APIs',
+                        text:
+                            'Integrating mobile applications with backend services and APIs involves connecting the front-end mobile app with the back-end server or database to facilitate exchange of data. it allows developling of dynamic and data-driven apps, as the app can retrieve and display information from the server in real-time.')),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: MyCard(
+                      // width: width / 6.4,
+                      image: 'assets/images/sunglasses.png',
+                      title: 'Implementing features',
+                      text:
+                          'I also offer services of adding feature and functionalities to your mobile app to enhance its capabilities and improve the user experience. Some common features that can be implemented in a mobile app include: Push notifications, Location tracking, In-app purchases, Social media integration, Personalization etc.'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: MyCard(
+                      // width: width / 6.4,
+                      image: 'assets/images/sunglasses.png',
+                      title: 'Testing and Debugging Mobile Apps',
+                      text:
+                          'This is an important step in the development process as it ensures that the app is stable, performs as expected, and provides a good user experience. this process involves identifying and fixing defects or issues in the mobile app. It is important to thoroughly test and debug a mobile app before releasing it to the public to ensure that it is of high quality and performs as expected.'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: MyCard(
+                      // width: width / 6.4,
+                      height: 450,
+                      image: 'assets/images/sunglasses.png',
+                      title: 'Maintaining and Updating Existing Mobile Apps',
+                      text:
+                          'Maintaining and updating existing mobile applications is an important part of the app development process and can help to ensure the long-term success of the app. This can include fixing bugs and defects, adding new features and functionality, and optimizing the app for newer devices and operating system versions. I also offer app redesign which involves changing the design or user interface to make it more modern and appealing to users. This can help to keep the app relevant and competitive in the market.'),
+                ),
+                Padding(
+                  padding: const EdgeInsets.all(20),
+                  child: MyCard(
+                      // width: width / 6.4,
+                      height: 500,
+                      image: 'assets/images/sunglasses.png',
+                      title:
+                          'Consulting services on mobile apps development and strategy',
+                      text:
+                          'I offer expert advice and guidance to clients on how to develop and implement a successful mobile app. This can include helping to define the scope and requirements of the project, suggesting technologies and frameworks to use, and providing ongoing support and guidance throughout the development process. In addition to development-related services, i also offer advice on marketing and promoting the app to reach the target audience, as well as how to monetize the app and generate revenue'),
                 ),
                 Container(
                   height: height / 13.34,
@@ -353,15 +442,11 @@ class _MobileHomeState extends State<MobileHome> {
                             style: TextStyle(
                                 fontSize: height / 33.35,
                                 fontWeight: FontWeight.bold,
-                                
                                 fontFamily: 'Poppins'),
                             children: [
                               TextSpan(
-                                
                                   text:
-                                      'Looking to Build Your Next App or\nConsulting work for me? '),
-                                    
-
+                                      'Looking to Build Your Next App or Consulting work for me? '),
                               TextSpan(
                                   text: 'Get In Touch With Me ASAP',
                                   style: TextStyle(color: Color(0xFF3F8E00)))
@@ -461,7 +546,7 @@ class _MobileHomeState extends State<MobileHome> {
                     margin: EdgeInsets.symmetric(horizontal: height / 66.70),
                     // color: Colors.white,
                     child: Text(
-                      'Solving User and Business Problem With exceptional app Solving User and Business Problem with exceptional app',
+                      'Solving User and Business Problem With Exceptional Apps',
                       textAlign: TextAlign.center,
                       style: TextStyle(
                           fontSize: height / 40.35,
