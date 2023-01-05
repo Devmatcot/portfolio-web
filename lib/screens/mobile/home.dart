@@ -363,7 +363,7 @@ class _MobileHomeState extends State<MobileHome> {
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: MyCard(
-                      image: 'assets/images/ribbon.png',
+                      image: 'assets/images/newapp.png',
                       title: 'Design and Develop\nCustom Mobile Apps',
                       text:
                           'I Design and Develop custom Mobile Apps services that allow businesses and individuals to meet their specific needs and goals. Whether you need a simple app to showcase your products or a complex, data-driven app to streamline your business processes, I have the skills and expertise to bring your vision to reality. Contact Me today to learn more about how our Design and Develop Custom Mobile Apps services can help you succeed.'),
@@ -372,16 +372,17 @@ class _MobileHomeState extends State<MobileHome> {
                     padding: const EdgeInsets.all(20),
                     child: MyCard(
                         // width: width / 6.4,
-                        image: 'assets/images/smile.png',
+                        image: 'assets/images/database.png',
                         title:
                             'Integrating Mobile Apps with Backend services and APIs',
                         text:
                             'Integrating mobile applications with backend services and APIs involves connecting the front-end mobile app with the back-end server or database to facilitate exchange of data. it allows developling of dynamic and data-driven apps, as the app can retrieve and display information from the server in real-time.')),
+                
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: MyCard(
                       // width: width / 6.4,
-                      image: 'assets/images/sunglasses.png',
+                      image: 'assets/images/appfeature.png',
                       title: 'Implementing features',
                       text:
                           'I also offer services of adding feature and functionalities to your mobile app to enhance its capabilities and improve the user experience. Some common features that can be implemented in a mobile app include: Push notifications, Location tracking, In-app purchases, Social media integration, Personalization etc.'),
@@ -390,7 +391,7 @@ class _MobileHomeState extends State<MobileHome> {
                   padding: const EdgeInsets.all(20),
                   child: MyCard(
                       // width: width / 6.4,
-                      image: 'assets/images/sunglasses.png',
+                      image: 'assets/images/testing.png',
                       title: 'Testing and Debugging Mobile Apps',
                       text:
                           'This is an important step in the development process as it ensures that the app is stable, performs as expected, and provides a good user experience. this process involves identifying and fixing defects or issues in the mobile app. It is important to thoroughly test and debug a mobile app before releasing it to the public to ensure that it is of high quality and performs as expected.'),
@@ -400,7 +401,7 @@ class _MobileHomeState extends State<MobileHome> {
                   child: MyCard(
                       // width: width / 6.4,
                       height: 450,
-                      image: 'assets/images/sunglasses.png',
+                      image: 'assets/images/maintainace.png',
                       title: 'Maintaining and Updating Existing Mobile Apps',
                       text:
                           'Maintaining and updating existing mobile applications is an important part of the app development process and can help to ensure the long-term success of the app. This can include fixing bugs and defects, adding new features and functionality, and optimizing the app for newer devices and operating system versions. I also offer app redesign which involves changing the design or user interface to make it more modern and appealing to users. This can help to keep the app relevant and competitive in the market.'),
@@ -410,7 +411,7 @@ class _MobileHomeState extends State<MobileHome> {
                   child: MyCard(
                       // width: width / 6.4,
                       height: 500,
-                      image: 'assets/images/sunglasses.png',
+                      image: 'assets/images/appdoctor.png',
                       title:
                           'Consulting services on mobile apps development and strategy',
                       text:

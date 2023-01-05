@@ -188,7 +188,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                 ),
                                 SizedBox(width: width / 64),
                                 SmallButton(
-                                  text: 'View Past Works',
+                                  text: 'View Recent Projects',
                                   function: () =>
                                       // context.go('/portfolio');
                                       _scrollController.animateTo(4000,
@@ -305,7 +305,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
               ),
               Container(
                 // height: height / 0.946,
-                height: 1000,
+                // height: 1000,
                 width: double.infinity,
                 color: whiteColor,
                 child: Column(
@@ -315,20 +315,22 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
                             // height: 500,
-                            image: 'assets/images/ribbon.png',
-                            title: 'Design',
+                            image: 'assets/images/newapp.png',
+                            title: 'Design and Develop\nCustom Mobile Apps',
                             text:
-                                'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.'),
+                                'I Design and Develop custom Mobile Apps services that allow businesses and individuals to meet their specific needs and goals. Whether you need a simple app to showcase your products or a complex, data-driven app to streamline your business processes, I have the skills and expertise to bring your vision to reality. Contact Me today to learn more about how our Design and Develop Custom Mobile Apps services can help you succeed.'),
                         MyCard(
                             // width: width / 6.4,
                             // height: 500,
-                            image: 'assets/images/smile.png',
-                            title: 'UI/UX',
+                            image: 'assets/images/database.png',
+                            title:
+                                'Integrating Mobile Apps with Backend services and APIs',
                             text:
-                                'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
+                                'Integrating mobile applications with backend services and APIs involves connecting the front-end mobile app with the back-end server or database to facilitate exchange of data. it allows developling of dynamic and data-driven apps, as the app can retrieve and display information from the server in real-time.'),
                       ],
                     ),
                     SizedBox(
@@ -340,25 +342,56 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     // ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
-                            // height: 500,
+                            height: 500,
 
                             // width: width / 6.4,
-                            image: 'assets/images/sunglasses.png',
-                            title: 'Developer',
+                            image: 'assets/images/appfeature.png',
+                            title: 'Implementing features',
                             text:
-                                'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
+                                'I also offer services of adding feature and functionalities to your mobile app to enhance its capabilities and improve the user experience. Some common features that can be implemented in a mobile app include: Push notifications, Location tracking, In-app purchases, Social media integration, Personalization etc.'),
                         MyCard(
-                            // height: 500,
+                            height: 500,
 
                             // width: width / 6.4,
-                            image: 'assets/images/sunglasses.png',
-                            title: 'Developer',
+                            image: 'assets/images/testing.png',
+                            title: 'Testing and Debugging Mobile Apps',
                             text:
-                                'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
+                                'This is an important step in the development process as it ensures that the app is stable, performs as expected, and provides a good user experience. this process involves identifying and fixing defects or issues in the mobile app. It is important to thoroughly test and debug a mobile app before releasing it to the public to ensure that it is of high quality and performs as expected.'),
                       ],
                     ),
+                    SizedBox(
+                      height: 70,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                       crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        MyCard(
+                            height: 500,
+
+                            // width: width / 6.4,
+                            image: 'assets/images/appdoctor.png',
+                            title:
+                                'Consulting services on mobile apps development and strategy',
+                            text:
+                                'I offer expert advice and guidance to clients on how to develop and implement a successful mobile app. This can include helping to define the scope and requirements of the project, suggesting technologies and frameworks to use, and providing ongoing support and guidance throughout the development process. In addition to development-related services, i also offer advice on marketing and promoting the app to reach the target audience, as well as how to monetize the app and generate revenue.'),
+                        MyCard(
+                            height: 500,
+
+                            // width: width / 6.4,
+                            image: 'assets/images/maintainace.png',
+                            title:
+                                'Maintaining and Updating Existing Mobile Apps',
+                            text:
+                                'This is an important step in the development process as it ensures that the app is stable, performs as expected, and provides a good user experience. this process involves identifying and fixing defects or issues in the mobile app. It is important to thoroughly test and debug a mobile app before releasing it to the public to ensure that it is of high quality and performs as expected.'),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 20,
+                    )
                   ],
                 ),
               ),
@@ -491,7 +524,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                         child: Column(
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
-                            Text('Clients get always',
+                            Text('Clients always get',
                                 style: TextStyle(
                                     fontSize: height / 21.53,
                                     fontWeight: FontWeight.bold)),
@@ -516,7 +549,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               ),
                             ),
                             const Text(
-                                'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut la'),
+                                'With the proliferation of smartphone technology, it is more important than ever for brands to engage with their customers through effective and memorable mobile applications. I believe these apps should be intuitive experiences that solve real problems while engaging and delighting end users. I take pride in building solutions that drive adoption while fostering customer loyalty.'),
                             SizedBox(
                               height: height / 96.9,
                             ),
@@ -526,14 +559,28 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                     fontWeight: FontWeight.w700,
                                     color: Colors.black87)),
                             Text(
-                              '2. Clean Code',
+                              '2. Attention to Details',
                               style: TextStyle(
                                   fontSize: height / 48.45,
                                   fontWeight: FontWeight.w700,
                                   color: Colors.black87),
                             ),
                             Text(
-                              '3. Deligent and Commitment',
+                              '3. Clean Code',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: height / 48.45,
+                                  color: Colors.black87),
+                            ),
+                            Text(
+                              '4. Deligent and Commitment',
+                              style: TextStyle(
+                                  fontWeight: FontWeight.w700,
+                                  fontSize: height / 48.45,
+                                  color: Colors.black87),
+                            ),
+                            Text(
+                              '5. Teamwork Spirit',
                               style: TextStyle(
                                   fontWeight: FontWeight.w700,
                                   fontSize: height / 48.45,
@@ -632,7 +679,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                   margin: EdgeInsets.symmetric(horizontal: width / 9.6),
                   color: Colors.transparent,
                   child: Text(
-                    'Serving customer with different quality product. Solving User and Business Problem\nwith exceptional app Solving User and Business Problem with exceptional app',
+                    'I build to solve User and Business Problem\nWith Exceptional Mobile App',
                     style: TextStyle(
                         fontSize: height / 48.45,
                         fontFamily: 'Poppins',

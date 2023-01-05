@@ -85,8 +85,8 @@ class WebProjectcard extends StatelessWidget {
             padding: EdgeInsets.all(20),
             child: ClipRRect(
               borderRadius: BorderRadius.circular(height / 41.6),
-              child: Image.network(
-                'https://iapptechnologies.com/wp-content/uploads/2022/03/mobile-app-development.webp',
+              child: Image.asset(
+                'assets/images/display-pics.png',
                 fit: BoxFit.contain,
               ),
             ),
