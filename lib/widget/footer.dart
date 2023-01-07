@@ -34,7 +34,10 @@ class Footer extends StatelessWidget {
                     )),
                 IconButton(
                     onPressed: () {},
-                    icon: FaIcon(FontAwesomeIcons.twitter, color: Colors.white,)),
+                    icon: FaIcon(
+                      FontAwesomeIcons.twitter,
+                      color: Colors.white,
+                    )),
                 IconButton(
                     onPressed: () {},
                     icon: FaIcon(
@@ -44,9 +47,9 @@ class Footer extends StatelessWidget {
               ],
             ),
             Text(
-              '© 2022 Built by Dev Matcot, Designed By Bulam Gerhana',
-              style: TextStyle(
-                  color: Colors.white, fontWeight: FontWeight.w400),
+              '© 2023 Built by Dev Matcot, Designed By Bulam Gerhana',
+              style:
+                  TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
             ),
             SizedBox(
               height: 10,
@@ -54,15 +57,13 @@ class Footer extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
-                Text('Built using',
-                    style: TextStyle(color: Colors.white)),
+                Text('Built using', style: TextStyle(color: Colors.white)),
                 FlutterLogo(
                   size: 18,
                 ),
                 Text('with ',
                     style: TextStyle(
-                        color: Colors.white,
-                        fontWeight: FontWeight.w400)),
+                        color: Colors.white, fontWeight: FontWeight.w400)),
                 Icon(
                   Icons.favorite,
                   color: Colors.red,

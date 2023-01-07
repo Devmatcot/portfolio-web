@@ -29,22 +29,30 @@ class _ContactPageState extends State<ContactPage> {
         elevation: 0,
         automaticallyImplyLeading: width > 600 ? false : true,
         // leading: MobileDrawer(),
-
+        title: Text('Contact'),
+        centerTitle: true,
         actions: width > 600
             ? [
                 AppBarText(
-                    id: 1,
+                    id: 2,
                     text: 'Home',
                     function: () {
                       context.go('/');
                     },
                     padding: 18.0),
+                // AppBarText(
+                //     id: 2, text: 'Porfolio', function: () {
+                //        context.go('/');
+                //     }, padding: 18.0),
                 AppBarText(
-                    id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
+                    id: 3,
+                    text: 'Testimonies',
+                    function: () {
+                      context.go('/testimonies');
+                    },
+                    padding: 18.0),
                 AppBarText(
-                    id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
-                AppBarText(
-                    id: 4, text: 'Contact', function: () {}, padding: 18.0),
+                    id: 1, text: 'Contact', function: () {}, padding: 18.0),
               ]
             : [],
       ),

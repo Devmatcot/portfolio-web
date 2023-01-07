@@ -42,7 +42,7 @@ class _DownloadCVState extends State<DownloadCV> {
                border: Border.all(color: yellowColor, width: 2)),
           child: Center(
             child: Text(
-              'Download My CV',
+              'My Resume',
               style: TextStyle(color: text),
             ),
           ),

@@ -4,7 +4,8 @@ import 'package:portfolio_web/widget/footer.dart';
 import 'package:portfolio_web/widget/web_project_card.dart';
 
 class ProjectDetails extends StatelessWidget {
-  const ProjectDetails({super.key});
+  Map details;
+  ProjectDetails({required this.details});
 
   @override
   Widget build(BuildContext context) {
@@ -15,20 +16,25 @@ class ProjectDetails extends StatelessWidget {
         children: [
           Container(
             height: 500,
-            color: Colors.amber,
+            color:details['color'] ,
             child: WebProjectcard(
               imageWidth: width / 2.13,
               Imageheigth: height / 1.38,
               showButton: false,
+              projectName: details['name'],
+              description: details['des'],
+              firstImage: details['firstpic'],
+              color: details['color'],
               // decription: width / 3.84,
-              decription: 500,
+              decriptionWidth: 500,
             ),
           ),
           Container(
             height: height,
             color: whiteColor,
             width: double.infinity,
-            child: Image.network('https://webkul.com/wp-content/uploads/2020/09/mobile-app-development-1.jpg'),
+            child: Image.network(
+                'https://webkul.com/wp-content/uploads/2020/09/mobile-app-development-1.jpg'),
           ),
           Footer()
         ],

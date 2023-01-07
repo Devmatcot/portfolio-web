@@ -11,13 +11,12 @@ import 'package:portfolio_web/screens/web/web_home.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:device_preview/device_preview.dart';
 
-
 void main() => runApp(
-  DevicePreview(
-    enabled: !kReleaseMode,
-    builder: (context) => MyApp(), // Wrap your app
-  ),
-);
+      DevicePreview(
+        enabled: !kReleaseMode,
+        builder: (context) => MyApp(), // Wrap your app
+      ),
+    );
 
 class MyApp extends StatelessWidget {
   // const MyApp({Key? key}) : super(key: key);
@@ -35,7 +34,7 @@ class MyApp extends StatelessWidget {
           GoRoute(
             path: 'project_details',
             builder: (BuildContext context, GoRouterState state) =>
-                const ProjectDetails(),
+                ProjectDetails(details: state.extra as Map),
           ),
           GoRoute(
             path: 'home',

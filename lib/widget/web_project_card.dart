@@ -6,12 +6,22 @@ import "package:go_router/go_router.dart";
 
 class WebProjectcard extends StatelessWidget {
   double Imageheigth;
-  double decription;
+  double decriptionWidth;
   double imageWidth;
+  String projectName;
+  String firstImage;
+  String description;
   bool showButton;
+  Color color;
+  bool frontColor;
   WebProjectcard(
       {required this.Imageheigth,
-      required this.decription,
+      required this.decriptionWidth,
+      required this.projectName,
+      required this.firstImage,
+      required this.description,
+      required this.color,
+      this.frontColor = false,
       this.showButton = true,
       required this.imageWidth});
   @override
@@ -38,43 +48,44 @@ class WebProjectcard extends StatelessWidget {
               ),
               Padding(
                 padding: EdgeInsets.symmetric(vertical: height / 51.6),
-                child: Text('Project Name'.toUpperCase(),
+                child: Text(projectName.toUpperCase(),
                     style: TextStyle(
-                        fontSize: height / 31.6, fontWeight: FontWeight.bold)),
+                        fontSize: height / 31.6,
+                        fontWeight: FontWeight.bold,
+                        color: frontColor ? Colors.black : whiteColor)),
               ),
               Container(
-                width: decription,
+                width: decriptionWidth,
                 padding: EdgeInsets.only(bottom: height / 41.6),
                 child: Text(
+                  // description,
                   'Something to read and know about the project done, this is a description of the project and click to read more about it contact me if you like it i will be glad to work with you, description of the project and click to read more about it contact me if you like it i will be glad to work with you',
-                  style: TextStyle(fontSize: height / 48.45),
+                  style: TextStyle(
+                      fontSize: height / 48.45,
+                      color: frontColor ? Colors.black : whiteColor),
                   maxLines: 10,
                   overflow: TextOverflow.ellipsis,
                 ),
               ),
-             if(showButton) Spacer(),
-
-              if(showButton) Padding(
-                padding: const EdgeInsets.only(bottom: 50),
-                child: SmallButton(
-                  text: 'Learn More >>',
-                  function: () {
-                    context.go('/project_details');
-                  },
-                  showShadow: false,
-                  padding: height / 92.9,
+              if (showButton) Spacer(),
+              if (showButton)
+                Padding(
+                  padding: const EdgeInsets.only(bottom: 50),
+                  child: SmallButton(
+                    text: 'Learn More >>',
+                    function: () {
+                      context.go('/project_details', extra: {
+                        'name': projectName,
+                        'des': description,
+                        'firstpic': firstImage,
+                        'color': color
+                      });
+                      // context.goNamed('/project_details', {'':''});
+                    },
+                    showShadow: false,
+                    padding: height / 92.9,
+                  ),
                 ),
-              ),
-              // Padding(
-              //   padding: const EdgeInsets.only(bottom: 50),
-              //   child: Container(
-              //     // height: 70,
-              //     // width: ,
-              //     padding: EdgeInsets.symmetric(horizontal: 20, vertical: 10),
-              //     color: whiteColor,
-              //     child: Text('Learn More >>'),
-              //   ),
-              // )
             ],
           ),
           Spacer(),
@@ -86,13 +97,12 @@ class WebProjectcard extends StatelessWidget {
             child: ClipRRect(
               borderRadius: BorderRadius.circular(height / 41.6),
               child: Image.asset(
-                'assets/images/display-pics.png',
+                // 'assets/images/display-pics.png',
+                'assets/images/$firstImage.png',
+
                 fit: BoxFit.contain,
               ),
             ),
-            // decoration: BoxDecoration(
-            //   borderRadius: BorderRadius.circular(30),
-            // )
           ),
         ],
       ),

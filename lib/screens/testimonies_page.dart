@@ -20,30 +20,31 @@ class TestimoniesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
+    print(width);
     return Scaffold(
       appBar: AppBar(
         backgroundColor: bgColor,
 
         elevation: 0,
-        automaticallyImplyLeading: width > 600 ? false : true,
+        automaticallyImplyLeading: width > 700 ? false : true,
 
         // leading: MobileDrawer(),
 
-        actions: width > 600
+        actions: width > 700
             ? [
                 AppBarText(
-                    id: 1,
+                    id: 2,
                     text: 'Home',
                     function: () {
                       context.go('/');
                     },
-                    padding: 18.0),
+                    padding: width/86.28),
+                // AppBarText(
+                //     id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
                 AppBarText(
-                    id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
+                    id: 1, text: 'Testimonies', function: () {}, padding: width/86.28),
                 AppBarText(
-                    id: 3, text: 'Testimonies', function: () {}, padding: 18.0),
-                AppBarText(
-                    id: 4, text: 'Contact', function: () {}, padding: 18.0),
+                    id: 2, text: 'Contact', function: () {}, padding: width/86.28),
               ]
             : [],
       ),
@@ -51,9 +52,11 @@ class TestimoniesPage extends StatelessWidget {
       body: ListView(
         children: [
           Container(
-            height: 1000,
+            // height: 1000,
+            height: height * 1.25,
             width: width,
             decoration: BoxDecoration(
+              color: bgColor,
               image: DecorationImage(
                 image: AssetImage('assets/images/bg.png'),
                 fit: BoxFit.cover,
@@ -62,26 +65,27 @@ class TestimoniesPage extends StatelessWidget {
             child: Column(
               children: [
                 SizedBox(
-                  height: 40,
+                  height: height / 20,
                 ),
                 Text(
                   'What Our Client Says About Us!',
                   style: TextStyle(
                       color: whiteColor,
-                      fontSize: 50,
+                      fontSize: height / 16,
                       fontWeight: FontWeight.w600),
                 ),
                 Text(
                   'We are looking forward to add your testimonies to the list!',
                   textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 20, color: yellowColor),
+                  style: TextStyle(fontSize: height / 40, color: yellowColor),
                 ),
                 SizedBox(
-                  height: 70,
+                  height: height / 11.43,
                 ),
                 Container(
-                  height: 600,
+                  height: height / 1.6,
                   width: width,
+                  // color: blackColor,
                   child: CarouselSlider(
                     carouselController: buttonCarouselController,
                     options:
@@ -97,7 +101,7 @@ class TestimoniesPage extends StatelessWidget {
                   ),
                 ),
                 SizedBox(
-                  height: 50,
+                  height: height / 16,
                 ),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
@@ -109,7 +113,7 @@ class TestimoniesPage extends StatelessWidget {
                           // myController.jumpTo(1);
                         }),
                     SizedBox(
-                      width: 350,
+                      width: width/4.44,
                     ),
                     // Spacer(),
                     ScrollButton(
@@ -137,13 +141,15 @@ class MessagesContainer extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+        final width = MediaQuery.of(context).size.width;
+    final height = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: 20, vertical: 20),
-      height: 300,
-      width: 900,
+      padding: EdgeInsets.symmetric(horizontal: height/40, vertical: height/40),
+      // height: 300,
+      width: width/2.22,
       decoration: BoxDecoration(
         color: whiteColor,
-        borderRadius: BorderRadius.circular(30),
+        borderRadius: BorderRadius.circular(height/26.7),
       ),
       child: Column(
         children: [
@@ -152,16 +158,16 @@ class MessagesContainer extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(8),
-                    height: 110,
-                    width: 110,
+                    padding: EdgeInsets.all(height/100),
+                    height: height/7.27,
+                    width: height/7.27,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: blackColor, width: 2),
                     ),
                     child: Container(
-                      height: 100,
-                      width: 100,
+                      height: height/8,
+                      width: height/8,
                       decoration: BoxDecoration(
                           color: bgColor,
                           shape: BoxShape.circle,
@@ -171,21 +177,21 @@ class MessagesContainer extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: 10,
+                    width: height/53.33,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children: const [
+                    children:  [
                       Text(
                         'Emmanuel Matthew',
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: 20),
+                            fontWeight: FontWeight.w600, fontSize: height/40),
                       ),
                       Text(
                         'Developer',
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: 15,
+                            fontSize: height/53.33,
                             color: Colors.black54),
                       ),
                     ],
@@ -195,11 +201,11 @@ class MessagesContainer extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: 50,
+            height: height/16,
           ),
           Text(
             'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            style: TextStyle(fontSize: 20),
+            style: TextStyle(fontSize: height/40),
           )
         ],
       ),

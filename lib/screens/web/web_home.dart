@@ -12,6 +12,7 @@ import 'package:portfolio_web/widget/download_cv.dart';
 import 'package:portfolio_web/widget/myStack.dart';
 import 'package:portfolio_web/widget/mobile_project_card.dart';
 
+import '../../model/project_model.dart';
 import '../../widget/appbartext.dart';
 import '../../widget/description.dart';
 import '../../widget/footer.dart';
@@ -80,12 +81,12 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                         children: [
                           AppBarText(function: (() {}), id: 1, text: 'Home'),
-                          AppBarText(
-                              function: (() {
-                                context.go('/contact');
-                              }),
-                              text: 'About',
-                              id: 4),
+                          // AppBarText(
+                          //     function: (() {
+                          //       context.go('/contact');
+                          //     }),
+                          //     text: 'About',
+                          //     id: 4),
                           AppBarText(
                               function: () {
                                 _scrollController.animateTo(4000,
@@ -129,8 +130,8 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 child: Stack(
                   children: [
                     Positioned(
-                      // bottom: 0,
-                      bottom: width < 1700 ? -200 : 0,
+                      bottom: 0,
+                      // bottom: width < 1700 ? -200 : 0,
                       right: MediaQuery.of(context).size.width / 12.8,
                       top: height / 9.69,
                       child: Container(
@@ -291,7 +292,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 width: double.infinity,
                 child: Center(
                   child: Text(
-                    'Our Services',
+                    'Services Offering',
                     style: TextStyle(
                         fontSize: height / 32.3, fontWeight: FontWeight.bold),
                   ),
@@ -315,7 +316,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
                             // height: 500,
@@ -367,7 +368,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                     ),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                       crossAxisAlignment: CrossAxisAlignment.start,
+                      crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
                             height: 500,
@@ -401,38 +402,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 color: whiteColor,
                 child: Stack(
                   children: [
-                    // Positioned(
-                    //   top: height / 19.38,
-                    //   left: width / 19.2,
-                    //   child: MyCard(
-                    //       image: 'assets/images/ribbon.png',
-                    //       title: 'Design',
-                    //       text:
-                    //           'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publication, without the meaning of the text influencing the design.'),
-                    // ),
-                    // Positioned(
-                    //     left: width / 19.2,
-                    //     top: height / 1.938,
-                    //     child: Row(
-                    //       children: [
-                    //         MyCard(
-                    //             width: width / 6.4,
-                    //             image: 'assets/images/smile.png',
-                    //             title: 'UI/UX',
-                    //             text:
-                    //                 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
-                    //         SizedBox(
-                    //           width: width / 24,
-                    //         ),
-                    //         MyCard(
-                    //             width: width / 6.4,
-                    //             image: 'assets/images/sunglasses.png',
-                    //             title: 'Developer',
-                    //             text:
-                    //                 'In publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily replace text in a process called greeking, which allows designers to consider the form of a webpage or publicationIn publishing and graphic design, Lorem ipsum is a placeholder text commonly used to demonstrate the visual form of a document or a typeface without relying on meaningful content. Lorem ipsum may be used as a placeholder before final copy is available. It is also used to temporarily'),
-                    //       ],
-                    //     ),
-                    //     ),
+                  
                     Positioned(
                       right: width / 12.8,
                       top: height / 19.38,
@@ -699,13 +669,18 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
 
                     child: CarouselSlider(
                       carouselController: buttonCarouselController,
-                      items: List.generate(10, (index) {
+                      items: List.generate(projectList.length, (index) {
                         return WebProjectcard(
                           // heigth: height / 2.422,
                           imageWidth: width / 2.13,
                           Imageheigth: height / 1.38,
+                          frontColor: true,
                           // decription: width / 3.84,
-                          decription: 500,
+                          projectName: projectList[index].projectName,
+                          description: projectList[index].projectName,
+                          firstImage: projectList[index].firstImage,
+                          color: projectList[index].color,
+                          decriptionWidth: 500,
                         );
                       }),
                       options: CarouselOptions(
@@ -743,8 +718,17 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
         ],
       ),
     );
+    
   }
 
   CarouselController buttonCarouselController = CarouselController();
   ScrollController myController = ScrollController();
+  List<ProjectModel> projectList = [
+    ProjectModel(color: Color.fromARGB(255, 14, 101, 173),detailImage: '', firstImage: 'matcotfirst', projectDetails: 'matcotfirst', projectName: 'Matcot Play'),
+    ProjectModel(color: Color.fromARGB(255, 14, 62, 219),detailImage: '', firstImage: 'vastyfirst', projectDetails: 'vastyfirst', projectName: 'Vasty'),
+    ProjectModel(color: Color.fromARGB(255, 8, 75, 131),detailImage: '', firstImage: 'payamfirst', projectDetails: 'payamfirst', projectName: 'PayAm'),
+    // ProjectModcolor: Colors.blue,el(detailImage: '', firstImage: '', projectDetails: '', projectName: 'Airi Wallet'),
+    ProjectModel(color: Color.fromARGB(255, 44, 2, 68),detailImage: '', firstImage: 'nftfirst', projectDetails: '', projectName: 'NFT Marketplace UI'),
+    ProjectModel(color: Color.fromARGB(255, 7, 0, 10),detailImage: '', firstImage: 'autohubfirst', projectDetails: 'autohubfirst', projectName: 'AutoHub'),
+  ];
 }
