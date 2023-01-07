@@ -16,7 +16,7 @@ class ProjectDetails extends StatelessWidget {
         children: [
           Container(
             height: 500,
-            color:details['color'] ,
+            color: details['color'],
             child: WebProjectcard(
               imageWidth: width / 2.13,
               Imageheigth: height / 1.38,
@@ -25,6 +25,7 @@ class ProjectDetails extends StatelessWidget {
               description: details['des'],
               firstImage: details['firstpic'],
               color: details['color'],
+              projectImage: details['projectdp'],
               // decription: width / 3.84,
               decriptionWidth: 500,
             ),
@@ -33,8 +34,11 @@ class ProjectDetails extends StatelessWidget {
             height: height,
             color: whiteColor,
             width: double.infinity,
-            child: Image.network(
-                'https://webkul.com/wp-content/uploads/2020/09/mobile-app-development-1.jpg'),
+            child: Image.asset(
+              // 'https://webkul.com/wp-content/uploads/2020/09/mobile-app-development-1.jpg'
+              'assets/images/${details['projectdp']}.png',
+              fit: BoxFit.cover,
+            ),
           ),
           Footer()
         ],

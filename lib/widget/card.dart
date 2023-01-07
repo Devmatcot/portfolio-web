@@ -14,7 +14,7 @@ class MyCard extends StatelessWidget {
       required this.image,
       required this.title,
       this.height,
-      this.width = 700})
+      this.width })
       : super(key: key);
   @override
   Widget build(BuildContext context) {

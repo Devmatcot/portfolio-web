@@ -34,3 +34,9 @@ double width180 = screenWidth / 2.28;
 double width2H = screenWidth / 1.8;
 
 double width200 = screenWidth / 1.7;
+String twitterLink = 'https://twitter.com/devmatcot';
+String whatsappLink = 'https://wa.me/+2348108281494';
+String gitHubLink = 'https://github.com/Devmatcot/';
+String linkedin = 'https://www.linkedin.com/in/dev-matcot-a4455618a/';
+String resumeLink =
+    'https://firebasestorage.googleapis.com/v0/b/portfolio-web-4befd.appspot.com/o/my%20resume%2FMatthew%20O%20Emmanuel%20Resume%20-flutter%20developer.pdf?alt=media&token=f9756ed9-070e-4d2a-bfe5-3aad2917a636';

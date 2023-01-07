@@ -4,6 +4,7 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio_web/layout.dart';
 import 'package:portfolio_web/screens/contact_page.dart';
 import 'package:portfolio_web/screens/mobile/mobile_testimonies.dart';
+import 'package:portfolio_web/screens/mobile/project_details.dart';
 import 'package:portfolio_web/screens/testimonies_page.dart';
 import 'package:portfolio_web/screens/testimonies_pages.dart';
 import 'package:portfolio_web/screens/web/project_details.dart';
@@ -45,6 +46,11 @@ class MyApp extends StatelessWidget {
             path: 'testimonies',
             builder: (BuildContext context, GoRouterState state) =>
                 ResponsiveTestimonies(),
+          ),
+          GoRoute(
+            path: 'mproject_details',
+            builder: (BuildContext context, GoRouterState state) =>
+                MobileProjectDetails(project: state.extra as Map),
           ),
         ],
       ),

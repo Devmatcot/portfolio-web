@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
+import 'package:portfolio_web/constant.dart';
+import 'package:portfolio_web/services/services.dart';
 
 class Footer extends StatelessWidget {
-  const Footer({
-    Key? key,
-  }) : super(key: key);
-
+  Services callServices = Services();
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -21,25 +20,33 @@ class Footer extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      callServices.openUrl(linkedin);
+                    },
                     icon: FaIcon(
                       FontAwesomeIcons.linkedin,
                       color: Colors.white,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      callServices.openUrl(whatsappLink);
+                    },
                     icon: FaIcon(
-                      FontAwesomeIcons.facebook,
+                      FontAwesomeIcons.whatsapp,
                       color: Colors.white,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      callServices.openUrl(twitterLink);
+                    },
                     icon: FaIcon(
                       FontAwesomeIcons.twitter,
                       color: Colors.white,
                     )),
                 IconButton(
-                    onPressed: () {},
+                    onPressed: () {
+                      callServices.openUrl(gitHubLink);
+                    },
                     icon: FaIcon(
                       FontAwesomeIcons.github,
                       color: Colors.white,
@@ -48,6 +55,7 @@ class Footer extends StatelessWidget {
             ),
             Text(
               '© 2023 Built by Dev Matcot, Designed By Bulam Gerhana',
+              textAlign: TextAlign.center,
               style:
                   TextStyle(color: Colors.white, fontWeight: FontWeight.w400),
             ),
@@ -70,6 +78,9 @@ class Footer extends StatelessWidget {
                   size: 18,
                 )
               ],
+            ),
+            SizedBox(
+              height: 20,
             )
           ],
         ),

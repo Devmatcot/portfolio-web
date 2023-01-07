@@ -10,6 +10,7 @@ class WebProjectcard extends StatelessWidget {
   double imageWidth;
   String projectName;
   String firstImage;
+  String projectImage;
   String description;
   bool showButton;
   Color color;
@@ -19,6 +20,7 @@ class WebProjectcard extends StatelessWidget {
       required this.decriptionWidth,
       required this.projectName,
       required this.firstImage,
+      required this.projectImage,
       required this.description,
       required this.color,
       this.frontColor = false,
@@ -78,7 +80,9 @@ class WebProjectcard extends StatelessWidget {
                         'name': projectName,
                         'des': description,
                         'firstpic': firstImage,
-                        'color': color
+                        'projectdp':projectImage,
+                        'color': color,
+                        
                       });
                       // context.goNamed('/project_details', {'':''});
                     },

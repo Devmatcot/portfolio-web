@@ -8,7 +8,9 @@ import 'package:go_router/go_router.dart';
 import 'package:portfolio_web/constant.dart';
 import 'package:portfolio_web/navigator_key.dart';
 import 'package:portfolio_web/screens/mobile/drawer.dart';
+import 'package:portfolio_web/services/services.dart';
 
+import '../../model/project_model.dart';
 import '../../widget/appbartext.dart';
 import '../../widget/card.dart';
 import '../../widget/constant.dart';
@@ -30,13 +32,17 @@ class MobileHome extends StatefulWidget {
 class _MobileHomeState extends State<MobileHome> {
   CarouselController buttonCarouselController = CarouselController();
   NavigatorKey myNavKey = NavigatorKey();
+  Services callServices = Services();
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     print(MediaQuery.of(context).size.height);
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
-      drawer: MobileDrawer(),
+      drawer: MobileDrawer(
+        scrollController: _scrollController,
+      ),
       body: CustomScrollView(
         slivers: [
           SliverAppBar(
@@ -181,7 +187,9 @@ class _MobileHomeState extends State<MobileHome> {
                               children: [
                                 SmallButton(
                                   text: 'Hire Me',
-                                  function: () {},
+                                  function: () {
+                                    context.go('/contact');
+                                  },
                                   padding: height / 66.7,
                                 ),
                                 // Spacer(),
@@ -191,7 +199,8 @@ class _MobileHomeState extends State<MobileHome> {
                                 SmallButton(
                                   text: 'Download CV',
                                   function: () {
-                                    context.go('/contact');
+                                    // context.go('/contact');
+                                    callServices.openUrl(resumeLink);
                                   },
                                   padding: height / 66.7,
                                 )
@@ -377,7 +386,6 @@ class _MobileHomeState extends State<MobileHome> {
                             'Integrating Mobile Apps with Backend services and APIs',
                         text:
                             'Integrating mobile applications with backend services and APIs involves connecting the front-end mobile app with the back-end server or database to facilitate exchange of data. it allows developling of dynamic and data-driven apps, as the app can retrieve and display information from the server in real-time.')),
-                
                 Padding(
                   padding: const EdgeInsets.all(20),
                   child: MyCard(
@@ -464,12 +472,19 @@ class _MobileHomeState extends State<MobileHome> {
                         height: height / 66.70,
                       ),
                       MessageInput(
+                          controller: emailControler,
                           title: 'E-mail',
                           hintText: 'Please provide your Email'),
                       MessageInput(
-                          title: 'Mobile',
-                          hintText: 'Please provide your phone no'),
+                          controller: subjectControler,
+                          title: 'Subject',
+                          hintText: 'Enter Message Subject here'),
                       MessageInput(
+                          controller: clientNameControler,
+                          title: 'Full Name',
+                          hintText: 'Please provide your Full Name'),
+                      MessageInput(
+                        controller: messageControler,
                         title: 'Message',
                         hintText: 'Enter Message here',
                         line: 5,
@@ -479,7 +494,14 @@ class _MobileHomeState extends State<MobileHome> {
                       ),
                       LargeButton(
                         text: 'Submit',
-                        function: () {},
+                        function: () {
+                          callServices.sendMail(
+                              mail: emailControler.text,
+                              context: context,
+                              clientName: clientNameControler.text,
+                              subject: subjectControler.text,
+                              message: messageControler.text);
+                        },
                         width: MediaQuery.of(context).size.width / 0.9825,
                       ),
                       SizedBox(
@@ -567,10 +589,11 @@ class _MobileHomeState extends State<MobileHome> {
 
                       child: CarouselSlider(
                           carouselController: buttonCarouselController,
-                          items: List.generate(10, (index) {
+                          items: List.generate(projectList.length, (index) {
                             return Projectcard(
                               heigth: height / 3.03,
-                              decription: width / 1.25,
+                              decriptionWidth: width / 1.25,
+                              model: projectList[index],
                             );
                           }),
                           options: CarouselOptions(
@@ -613,6 +636,50 @@ class _MobileHomeState extends State<MobileHome> {
       ),
     );
   }
+
+  TextEditingController emailControler = TextEditingController();
+  TextEditingController subjectControler = TextEditingController();
+  TextEditingController clientNameControler = TextEditingController();
+  TextEditingController messageControler = TextEditingController();
+  //
+  List<ProjectModel> projectList = [
+    ProjectModel(
+        color: Color.fromARGB(255, 14, 101, 173),
+        detailImage: 'matcotdp',
+        firstImage: 'matcotfirst',
+        projectDetails: 'matcotfirst',
+        listImage: 'matcot',
+        projectName: 'Matcot Play'),
+    ProjectModel(
+        color: Color.fromARGB(255, 14, 62, 219),
+        detailImage: 'vastydp',
+        firstImage: 'vastyfirst',
+        projectDetails: 'vastyfirst',
+        listImage: 'vasty',
+        projectName: 'Vasty'),
+    ProjectModel(
+        color: Color.fromARGB(255, 8, 75, 131),
+        detailImage: 'payamdp',
+        firstImage: 'payamfirst',
+        projectDetails: 'payamfirst',
+        listImage: 'payam',
+        projectName: 'PayAm'),
+    // ProjectModcolor: Colors.blue,el(detailImage: '', firstImage: '', projectDetails: '', projectName: 'Airi Wallet'),
+    ProjectModel(
+        color: Color.fromARGB(255, 44, 2, 68),
+        detailImage: 'nftdp',
+        firstImage: 'nftfirst',
+        projectDetails: '',
+        listImage: 'nft',
+        projectName: 'NFT Marketplace UI'),
+    ProjectModel(
+        color: Color.fromARGB(255, 7, 0, 10),
+        detailImage: 'autohubdp',
+        firstImage: 'autohubfirst',
+        listImage: 'autohub',
+        projectDetails: 'autohubfirst',
+        projectName: 'AutoHub'),
+  ];
 }
 
 class ContactDetails extends StatelessWidget {

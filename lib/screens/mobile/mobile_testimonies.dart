@@ -15,6 +15,7 @@ import '../../widget/footer.dart';
 class MobileTestimoniesPage extends StatelessWidget {
   // const TestimoniesPage({super.key});
   CarouselController buttonCarouselController = CarouselController();
+  ScrollController _scrollController = ScrollController();
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,9 @@ class MobileTestimoniesPage extends StatelessWidget {
         elevation: 0,
         automaticallyImplyLeading: width > 600 ? false : true,
       ),
-      drawer: MobileDrawer(),
+      drawer: MobileDrawer(
+        scrollController: _scrollController,
+      ),
       body: Container(
         height: height,
         width: width,
@@ -63,6 +66,7 @@ class MobileTestimoniesPage extends StatelessWidget {
                 shrinkWrap: true,
                 itemCount: 5,
                 // scrollDirection: Axis.horizontal,
+                physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (_, index) {
                   return MessagesContainer(
                     Mheight: width / 1.6,

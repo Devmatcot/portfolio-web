@@ -15,6 +15,8 @@ import '../widget/footer.dart';
 class TestimoniesPage extends StatelessWidget {
   // const TestimoniesPage({super.key});
   CarouselController buttonCarouselController = CarouselController();
+  ScrollController _scrollController = ScrollController();
+  
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +50,9 @@ class TestimoniesPage extends StatelessWidget {
               ]
             : [],
       ),
-      drawer: MobileDrawer(),
+      drawer: MobileDrawer(
+        scrollController: _scrollController,
+      ),
       body: ListView(
         children: [
           Container(

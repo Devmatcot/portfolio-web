@@ -320,12 +320,13 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       children: [
                         MyCard(
                             // height: 500,
+                            width: width / 2.84,
                             image: 'assets/images/newapp.png',
                             title: 'Design and Develop\nCustom Mobile Apps',
                             text:
                                 'I Design and Develop custom Mobile Apps services that allow businesses and individuals to meet their specific needs and goals. Whether you need a simple app to showcase your products or a complex, data-driven app to streamline your business processes, I have the skills and expertise to bring your vision to reality. Contact Me today to learn more about how our Design and Develop Custom Mobile Apps services can help you succeed.'),
                         MyCard(
-                            // width: width / 6.4,
+                            width: width / 2.84,
                             // height: 500,
                             image: 'assets/images/database.png',
                             title:
@@ -346,17 +347,17 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
-                            height: 500,
+                            // height: 500,
 
-                            // width: width / 6.4,
+                            width: width / 2.84,
                             image: 'assets/images/appfeature.png',
                             title: 'Implementing features',
                             text:
                                 'I also offer services of adding feature and functionalities to your mobile app to enhance its capabilities and improve the user experience. Some common features that can be implemented in a mobile app include: Push notifications, Location tracking, In-app purchases, Social media integration, Personalization etc.'),
                         MyCard(
-                            height: 500,
+                            // height: 500,
 
-                            // width: width / 6.4,
+                            width: width / 2.84,
                             image: 'assets/images/testing.png',
                             title: 'Testing and Debugging Mobile Apps',
                             text:
@@ -371,18 +372,18 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         MyCard(
-                            height: 500,
+                            // height: 500,
 
-                            // width: width / 6.4,
+                            width: width / 2.84,
                             image: 'assets/images/appdoctor.png',
                             title:
                                 'Consulting services on mobile apps development and strategy',
                             text:
                                 'I offer expert advice and guidance to clients on how to develop and implement a successful mobile app. This can include helping to define the scope and requirements of the project, suggesting technologies and frameworks to use, and providing ongoing support and guidance throughout the development process. In addition to development-related services, i also offer advice on marketing and promoting the app to reach the target audience, as well as how to monetize the app and generate revenue.'),
                         MyCard(
-                            height: 500,
+                            // height: 500,
 
-                            // width: width / 6.4,
+                            width: width / 2.84,
                             image: 'assets/images/maintainace.png',
                             title:
                                 'Maintaining and Updating Existing Mobile Apps',
@@ -402,7 +403,6 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                 color: whiteColor,
                 child: Stack(
                   children: [
-                  
                     Positioned(
                       right: width / 12.8,
                       top: height / 19.38,
@@ -463,12 +463,15 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               height: height / 96.9,
                             ),
                             MessageInput(
+                              controller: emailControler,
                                 title: 'E-mail',
                                 hintText: 'Please provide your Email'),
                             MessageInput(
-                                title: 'Mobile',
-                                hintText: 'Please provide your phone no'),
+                              controller: subjectControler,
+                                title: 'Subject',
+                                hintText: 'Enter Message Subject here'),
                             MessageInput(
+                              controller: messageControler,
                               title: 'Message',
                               hintText: 'Enter Message here',
                               line: 5,
@@ -679,8 +682,9 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                           projectName: projectList[index].projectName,
                           description: projectList[index].projectName,
                           firstImage: projectList[index].firstImage,
+                          projectImage: projectList[index].detailImage,
                           color: projectList[index].color,
-                          decriptionWidth: 500,
+                          decriptionWidth: width / 3.84,
                         );
                       }),
                       options: CarouselOptions(
@@ -718,17 +722,51 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
         ],
       ),
     );
-    
   }
 
+  TextEditingController emailControler = TextEditingController();
+  TextEditingController subjectControler = TextEditingController();
+  TextEditingController mobileControler = TextEditingController();
+  TextEditingController messageControler = TextEditingController();
   CarouselController buttonCarouselController = CarouselController();
+  //
   ScrollController myController = ScrollController();
   List<ProjectModel> projectList = [
-    ProjectModel(color: Color.fromARGB(255, 14, 101, 173),detailImage: '', firstImage: 'matcotfirst', projectDetails: 'matcotfirst', projectName: 'Matcot Play'),
-    ProjectModel(color: Color.fromARGB(255, 14, 62, 219),detailImage: '', firstImage: 'vastyfirst', projectDetails: 'vastyfirst', projectName: 'Vasty'),
-    ProjectModel(color: Color.fromARGB(255, 8, 75, 131),detailImage: '', firstImage: 'payamfirst', projectDetails: 'payamfirst', projectName: 'PayAm'),
+    ProjectModel(
+        color: Color.fromARGB(255, 14, 101, 173),
+        detailImage: 'matcotdp',
+        firstImage: 'matcotfirst',
+        projectDetails: 'matcotfirst',
+        listImage: 'matcot',
+        projectName: 'Matcot Play'),
+    ProjectModel(
+        color: Color.fromARGB(255, 14, 62, 219),
+        detailImage: 'vastydp',
+        firstImage: 'vastyfirst',
+        projectDetails: 'vastyfirst',
+        listImage: 'vasty',
+        projectName: 'Vasty'),
+    ProjectModel(
+        color: Color.fromARGB(255, 8, 75, 131),
+        detailImage: 'payamdp',
+        firstImage: 'payamfirst',
+        listImage: 'payam',
+        projectDetails: 'payamfirst',
+        projectName: 'PayAm'),
     // ProjectModcolor: Colors.blue,el(detailImage: '', firstImage: '', projectDetails: '', projectName: 'Airi Wallet'),
-    ProjectModel(color: Color.fromARGB(255, 44, 2, 68),detailImage: '', firstImage: 'nftfirst', projectDetails: '', projectName: 'NFT Marketplace UI'),
-    ProjectModel(color: Color.fromARGB(255, 7, 0, 10),detailImage: '', firstImage: 'autohubfirst', projectDetails: 'autohubfirst', projectName: 'AutoHub'),
+    ProjectModel(
+        color: Color.fromARGB(255, 44, 2, 68),
+        detailImage: 'nftdp',
+        firstImage: 'nftfirst',
+        projectDetails: '',
+        listImage: 'nft',
+        projectName: 'NFT Marketplace UI'),
+    ProjectModel(
+        color: Color.fromARGB(255, 7, 0, 10),
+        detailImage: 'autohubdp',
+        firstImage: 'autohubfirst',
+        projectDetails: 'autohubfirst',
+        listImage: 'autohub',
+        projectName: 'AutoHub'),
   ];
 }

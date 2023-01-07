@@ -6,8 +6,9 @@ class MessageInput extends StatelessWidget {
   String hintText;
   double width;
   int? line;
+  TextEditingController controller;
   MessageInput(
-      {Key? key, required this.title, required this.hintText, this.line = 1, this.width = 400})
+      {Key? key, required this.controller, required this.title, required this.hintText, this.line = 1, this.width = 400})
       : super(key: key);
 
   @override
@@ -27,6 +28,7 @@ class MessageInput extends StatelessWidget {
           child: Padding(
             padding: const EdgeInsets.symmetric(horizontal: 10),
             child: TextField(
+              controller: controller,
               maxLines: line,
               cursorColor: blackColor,
               decoration:

@@ -9,6 +9,7 @@ import 'package:portfolio_web/widget/message_input.dart';
 import 'package:portfolio_web/widget/smallbutton.dart';
 import 'package:go_router/go_router.dart';
 
+import '../services/services.dart';
 import 'mobile/home.dart';
 
 class ContactPage extends StatefulWidget {
@@ -19,11 +20,14 @@ class ContactPage extends StatefulWidget {
 }
 
 class _ContactPageState extends State<ContactPage> {
+  ScrollController _scrollController = ScrollController();
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
     return Scaffold(
-      drawer: MobileDrawer(),
+      drawer: MobileDrawer(
+        scrollController: _scrollController,
+      ),
       appBar: AppBar(
         backgroundColor: bgColor,
         elevation: 0,
@@ -90,46 +94,69 @@ class _ContactPageState extends State<ContactPage> {
                   Center(
                     child: Container(
                       margin: EdgeInsets.symmetric(
-                          horizontal: MediaQuery.of(context).size.width / 7.7),
-                      child: Column(
-                        children: [
-                          MessageInput(
-                            width: double.infinity,
-                            title: 'Full Name',
-                            hintText: 'Enter your fullname here',
-                          ),
-                          MessageInput(
-                            width: double.infinity,
-                            title: 'Email',
-                            hintText: 'Please provide valid E-mail',
-                          ),
-                          MessageInput(
-                            width: double.infinity,
-                            title: 'Subject',
-                            hintText: 'Your Email Subject',
-                          ),
-                          MessageInput(
-                            width: double.infinity,
-                            title: 'Message',
-                            hintText: 'Type your message here',
-                            line: 6,
-                          ),
-                        ],
+                          horizontal: MediaQuery.of(context).size.width > 700
+                              ? MediaQuery.of(context).size.width / 5.7
+                              : MediaQuery.of(context).size.width / 15.7),
+                      child: Form(
+                        autovalidateMode: AutovalidateMode.always,
+                        child: Column(
+                          children: [
+                            MessageInput(
+                              width: double.infinity,
+                              controller: clientNameControler,
+                              title: 'Full Name',
+                              hintText: 'Enter your fullname here',
+                            ),
+                            MessageInput(
+                              controller: emailControler,
+                              width: double.infinity,
+                              title: 'Email',
+                              hintText: 'Please provide valid E-mail',
+                            ),
+                            MessageInput(
+                              controller: subjectControler,
+                              width: double.infinity,
+                              title: 'Subject',
+                              hintText: 'Your Email Subject',
+                            ),
+                            MessageInput(
+                              controller: messageControler,
+                              width: double.infinity,
+                              title: 'Message',
+                              hintText: 'Type your message here',
+                              line: 10,
+                            ),
+                          ],
+                        ),
                       ),
                     ),
                   ),
                   SizedBox(height: 30),
                   Align(
                       // margin: EdgeInsets.symmetric(horizontal: MediaQuery.of(context).size.width/4.2),
-                      alignment: MediaQuery.of(context).size.width > 500
+                      alignment: MediaQuery.of(context).size.width > 700
                           ? Alignment.bottomRight
                           : Alignment.center,
                       child: Container(
                         margin: EdgeInsets.symmetric(
-                            horizontal:
-                                MediaQuery.of(context).size.width / 7.7),
+                            horizontal: MediaQuery.of(context).size.width > 700
+                                ? MediaQuery.of(context).size.width / 5.7
+                                : MediaQuery.of(context).size.width / 15.7),
                         child: LargeButton(
-                            text: 'Send Message', function: () {}, width: 300),
+                            text: 'Send Message',
+                            function: () {
+                              callServices.sendMail(
+                                  mail: emailControler.text,
+                                  context: context,
+                                  clientName: clientNameControler.text,
+                                  subject: subjectControler.text,
+                                  message: messageControler.text);
+                            },
+                            width: MediaQuery.of(context).size.width > 700
+                                ? 300
+                                : width / 1.177
+                            // width: 300,
+                            ),
                       )),
                   SizedBox(height: 30),
                 ],
@@ -138,6 +165,7 @@ class _ContactPageState extends State<ContactPage> {
           ),
           Container(
             padding: EdgeInsets.symmetric(horizontal: 10),
+            // width: width / 3.106,
             width: 500,
             // color: Colors.amberAccent,
             child: Column(
@@ -177,4 +205,10 @@ class _ContactPageState extends State<ContactPage> {
       ),
     );
   }
+
+  Services callServices = Services();
+  TextEditingController emailControler = TextEditingController();
+  TextEditingController subjectControler = TextEditingController();
+  TextEditingController clientNameControler = TextEditingController();
+  TextEditingController messageControler = TextEditingController();
 }
