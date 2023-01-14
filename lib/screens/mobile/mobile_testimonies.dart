@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio_web/model/testimonies_model.dart';
 import 'package:portfolio_web/screens/mobile/drawer.dart';
+import 'package:portfolio_web/services/services.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/scrollbutton.dart';
 
@@ -64,13 +66,14 @@ class MobileTestimoniesPage extends StatelessWidget {
               padding: EdgeInsets.symmetric(horizontal: width / 25),
               child: ListView.separated(
                 shrinkWrap: true,
-                itemCount: 5,
+                itemCount: callServices.reviews.length,
                 // scrollDirection: Axis.horizontal,
                 physics: NeverScrollableScrollPhysics(),
                 itemBuilder: (_, index) {
                   return MessagesContainer(
-                    Mheight: width / 1.6,
+                    // Mheight: width / 1.6,
                     Mwidth: width / 1.25,
+                    model: callServices.reviews[index],
                   );
                 },
                 separatorBuilder: (context, index) => SizedBox(
@@ -98,12 +101,19 @@ class MobileTestimoniesPage extends StatelessWidget {
       ),
     );
   }
+
+  Services callServices = Services();
 }
 
 class MessagesContainer extends StatelessWidget {
-  double Mheight;
+  // double Mheight;
   double Mwidth;
-  MessagesContainer({required this.Mheight, required this.Mwidth});
+  TestimoniesModel model;
+  MessagesContainer(
+      {
+      // required this.Mheight,
+      required this.Mwidth,
+      required this.model});
   @override
   Widget build(BuildContext context) {
     final width = MediaQuery.of(context).size.width;
@@ -111,7 +121,7 @@ class MessagesContainer extends StatelessWidget {
     return Container(
       padding:
           EdgeInsets.symmetric(horizontal: width / 25, vertical: width / 25),
-      height: Mheight,
+      // height: Mheight,
       width: Mwidth,
       decoration: BoxDecoration(
         color: whiteColor,
@@ -134,7 +144,7 @@ class MessagesContainer extends StatelessWidget {
                     child: Container(
                       height: width / 6.25,
                       width: width / 6.25,
-                      decoration: BoxDecoration(
+                      decoration: const BoxDecoration(
                           color: bgColor,
                           shape: BoxShape.circle,
                           image: DecorationImage(
@@ -149,12 +159,12 @@ class MessagesContainer extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        'Emmanuel Matthew',
+                        model.name,
                         style: TextStyle(
                             fontWeight: FontWeight.w600, fontSize: width / 25),
                       ),
                       Text(
-                        'Developer',
+                        model.jobRole,
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
                             fontSize: width / 33.33,
@@ -170,7 +180,7 @@ class MessagesContainer extends StatelessWidget {
             height: width / 50,
           ),
           Text(
-            'Lorem ipsum dolor sit amet, consecteturLorem ipsum dolor sit amet, consectetuLorem ipsum dolor sit amet, consectetu adipiscing elit, sed do',
+            model.review,
             style: TextStyle(fontSize: width / 25),
           )
         ],

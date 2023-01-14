@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
+import 'package:portfolio_web/constant.dart';
+import 'package:portfolio_web/services/services.dart';
 
 import 'constant.dart';
 
@@ -15,6 +17,7 @@ class _DownloadCVState extends State<DownloadCV> {
   // get yellowColor => null;
   Color change = bgColor;
   Color text = whiteColor;
+  Services callServices = Services();
   @override
   Widget build(BuildContext context) {
     return MouseRegion(
@@ -32,14 +35,15 @@ class _DownloadCVState extends State<DownloadCV> {
         });
       },
       child: GestureDetector(
-        onTap: () {},
+        onTap: () {
+          callServices.openUrl(resumeLink);
+        },
         child: Container(
           padding: const EdgeInsets.all(5),
           margin: EdgeInsets.only(top: 10, right: 10),
           height: 50,
           decoration: BoxDecoration(
-              color: change,
-               border: Border.all(color: yellowColor, width: 2)),
+              color: change, border: Border.all(color: yellowColor, width: 2)),
           child: Center(
             child: Text(
               'My Resume',

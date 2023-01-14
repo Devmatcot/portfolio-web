@@ -1,6 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 
+import '../model/testimonies_model.dart';
+import '../widget/constant.dart';
+
 class Services {
   Future<void> openUrl(_url) async {
     if (!await launchUrl(Uri.parse(_url))) {
@@ -57,4 +60,38 @@ class Services {
       launchUrl(emailLaunchUri);
     }
   }
+
+  List<TestimoniesModel> reviews = [
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie1,
+        name: 'Olawale Paul',
+        jobRole: 'UI/UX Designer'),
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie2,
+        name: 'Noah Daniel',
+        jobRole: 'Autohub Secretary'),
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie3,
+        name: 'John Grace',
+        jobRole: 'Vasty LC CEO'),
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie4,
+        name: 'Paul Ojetayo',
+        jobRole: 'Debe Logistics CEO'),
+    // TestimoniesModel(photo: 'photo', review: testimonie4, name: 'Surv. Blessing', jobRole: 'Vasty LC'),
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie5,
+        name: 'Oladeni Oluwasegun',
+        jobRole: 'Nusimag Manager'),
+    TestimoniesModel(
+        photo: 'photo',
+        review: testimonie6,
+        name: 'Charles John',
+        jobRole: 'Charles Global'),
+  ];
 }

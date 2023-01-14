@@ -19,6 +19,7 @@ class MobileProjectDetails extends StatelessWidget {
     final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Scaffold(
+      backgroundColor: whiteColor,
       drawer: MobileDrawer(),
       body: ListView(
         children: [

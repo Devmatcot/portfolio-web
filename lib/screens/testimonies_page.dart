@@ -5,7 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
 import 'package:go_router/go_router.dart';
+import 'package:portfolio_web/model/testimonies_model.dart';
 import 'package:portfolio_web/screens/mobile/drawer.dart';
+import 'package:portfolio_web/services/services.dart';
 import 'package:portfolio_web/widget/constant.dart';
 import 'package:portfolio_web/widget/scrollbutton.dart';
 
@@ -16,7 +18,6 @@ class TestimoniesPage extends StatelessWidget {
   // const TestimoniesPage({super.key});
   CarouselController buttonCarouselController = CarouselController();
   ScrollController _scrollController = ScrollController();
-  
 
   @override
   Widget build(BuildContext context) {
@@ -40,13 +41,19 @@ class TestimoniesPage extends StatelessWidget {
                     function: () {
                       context.go('/');
                     },
-                    padding: width/86.28),
+                    padding: width / 86.28),
                 // AppBarText(
                 //     id: 2, text: 'Porfolio', function: () {}, padding: 18.0),
                 AppBarText(
-                    id: 1, text: 'Testimonies', function: () {}, padding: width/86.28),
+                    id: 1,
+                    text: 'Testimonies',
+                    function: () {},
+                    padding: width / 86.28),
                 AppBarText(
-                    id: 2, text: 'Contact', function: () {}, padding: width/86.28),
+                    id: 2,
+                    text: 'Contact',
+                    function: () {},
+                    padding: width / 86.28),
               ]
             : [],
       ),
@@ -94,7 +101,11 @@ class TestimoniesPage extends StatelessWidget {
                     carouselController: buttonCarouselController,
                     options:
                         CarouselOptions(viewportFraction: 1, autoPlay: true),
-                    items: List.generate(5, (index) => MessagesContainer()),
+                    items: List.generate(
+                        callServices.reviews.length,
+                        (index) => MessagesContainer(
+                              model: callServices.reviews[index],
+                            )),
                     // child: ListView.builder(
                     //   itemCount: 5,
                     //   scrollDirection: Axis.horizontal,
@@ -117,7 +128,7 @@ class TestimoniesPage extends StatelessWidget {
                           // myController.jumpTo(1);
                         }),
                     SizedBox(
-                      width: width/4.44,
+                      width: width / 4.44,
                     ),
                     // Spacer(),
                     ScrollButton(
@@ -136,24 +147,26 @@ class TestimoniesPage extends StatelessWidget {
       ),
     );
   }
+
+  Services callServices = Services();
 }
 
 class MessagesContainer extends StatelessWidget {
-  const MessagesContainer({
-    Key? key,
-  }) : super(key: key);
+  TestimoniesModel model;
+  MessagesContainer({required this.model});
 
   @override
   Widget build(BuildContext context) {
-        final width = MediaQuery.of(context).size.width;
+    final width = MediaQuery.of(context).size.width;
     final height = MediaQuery.of(context).size.height;
     return Container(
-      padding: EdgeInsets.symmetric(horizontal: height/40, vertical: height/40),
+      padding:
+          EdgeInsets.symmetric(horizontal: height / 40, vertical: height / 40),
       // height: 300,
-      width: width/2.22,
+      width: width / 2.22,
       decoration: BoxDecoration(
         color: whiteColor,
-        borderRadius: BorderRadius.circular(height/26.7),
+        borderRadius: BorderRadius.circular(height / 26.7),
       ),
       child: Column(
         children: [
@@ -162,16 +175,16 @@ class MessagesContainer extends StatelessWidget {
               Row(
                 children: [
                   Container(
-                    padding: EdgeInsets.all(height/100),
-                    height: height/7.27,
-                    width: height/7.27,
+                    padding: EdgeInsets.all(height / 100),
+                    height: height / 7.27,
+                    width: height / 7.27,
                     decoration: BoxDecoration(
                       shape: BoxShape.circle,
                       border: Border.all(color: blackColor, width: 2),
                     ),
                     child: Container(
-                      height: height/8,
-                      width: height/8,
+                      height: height / 8,
+                      width: height / 8,
                       decoration: BoxDecoration(
                           color: bgColor,
                           shape: BoxShape.circle,
@@ -181,21 +194,21 @@ class MessagesContainer extends StatelessWidget {
                     ),
                   ),
                   SizedBox(
-                    width: height/53.33,
+                    width: height / 53.33,
                   ),
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
-                    children:  [
+                    children: [
                       Text(
-                        'Emmanuel Matthew',
+                        model.name,
                         style: TextStyle(
-                            fontWeight: FontWeight.w600, fontSize: height/40),
+                            fontWeight: FontWeight.w600, fontSize: height / 40),
                       ),
                       Text(
-                        'Developer',
+                        model.jobRole,
                         style: TextStyle(
                             fontWeight: FontWeight.w600,
-                            fontSize: height/53.33,
+                            fontSize: height / 53.33,
                             color: Colors.black54),
                       ),
                     ],
@@ -205,11 +218,12 @@ class MessagesContainer extends StatelessWidget {
             ],
           ),
           SizedBox(
-            height: height/16,
+            height: height / 16,
           ),
           Text(
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
-            style: TextStyle(fontSize: height/40),
+            // 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+            model.review,
+            style: TextStyle(fontSize: height / 40),
           )
         ],
       ),

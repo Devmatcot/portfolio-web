@@ -5,6 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:go_router/go_router.dart';
 import 'package:portfolio_web/constant.dart';
+import 'package:portfolio_web/services/services.dart';
 
 import 'package:portfolio_web/widget/card.dart';
 import 'package:portfolio_web/widget/constant.dart';
@@ -35,6 +36,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
   AnimationController? _controller;
   Animation<double>? _animation;
   ScrollController _scrollController = ScrollController();
+  Services callServices = Services();
   final dataKey = GlobalKey();
   @override
   Widget build(BuildContext context) {
@@ -184,7 +186,9 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               children: [
                                 SmallButton(
                                   text: 'Hire Me',
-                                  function: () {},
+                                  function: () {
+                                    context.go('/contact');
+                                  },
                                   padding: height / 92.9,
                                 ),
                                 SizedBox(width: width / 64),
@@ -425,13 +429,15 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                                         fontWeight: FontWeight.bold,
                                         color: Color(0xFF8773EE))),
                                 const Text(
-                                    'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.'),
+                                    'roficient in Dart and skilled in creaƟng intuiƟve and visually appealing user interfaces using FluƩer. Proven ability to deliver high-quality, cross-plaƞorm mobile apps on Ɵme and within budget.'),
                                 SizedBox(
                                   height: height / 48.45,
                                 ),
                                 SmallButton(
                                   text: 'Download CV',
-                                  function: () {},
+                                  function: () {
+                                    callServices.openUrl(resumeLink);
+                                  },
                                   padding: height / 92.9,
                                 ),
                               ],
@@ -463,11 +469,11 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                               height: height / 96.9,
                             ),
                             MessageInput(
-                              controller: emailControler,
+                                controller: emailControler,
                                 title: 'E-mail',
                                 hintText: 'Please provide your Email'),
                             MessageInput(
-                              controller: subjectControler,
+                                controller: subjectControler,
                                 title: 'Subject',
                                 hintText: 'Enter Message Subject here'),
                             MessageInput(
@@ -481,7 +487,14 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
                             ),
                             LargeButton(
                               text: 'Submit',
-                              function: () {},
+                              function: () {
+                                 callServices.sendMail(
+                                  mail: emailControler.text,
+                                  context: context,
+                                  clientName: clientNameControler.text,
+                                  subject: subjectControler.text,
+                                  message: messageControler.text);
+                              },
                               width: width / 4.8,
                             )
                           ],
@@ -726,7 +739,7 @@ class _WebHomeState extends State<WebHome> with SingleTickerProviderStateMixin {
 
   TextEditingController emailControler = TextEditingController();
   TextEditingController subjectControler = TextEditingController();
-  TextEditingController mobileControler = TextEditingController();
+  TextEditingController clientNameControler = TextEditingController();
   TextEditingController messageControler = TextEditingController();
   CarouselController buttonCarouselController = CarouselController();
   //

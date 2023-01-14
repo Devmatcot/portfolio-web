@@ -17,6 +17,7 @@ void main() => runApp(
         enabled: !kReleaseMode,
         builder: (context) => MyApp(), // Wrap your app
       ),
+      // MyApp(),
     );
 
 class MyApp extends StatelessWidget {

@@ -197,7 +197,7 @@ class _MobileHomeState extends State<MobileHome> {
                                     width: MediaQuery.of(context).size.width /
                                         3.75),
                                 SmallButton(
-                                  text: 'Download CV',
+                                  text: 'My Resume',
                                   function: () {
                                     // context.go('/contact');
                                     callServices.openUrl(resumeLink);
